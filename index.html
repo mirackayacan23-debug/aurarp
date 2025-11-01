@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA RP</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {margin:0; font-family:'Poppins', sans-serif; background:#111; color:#fff;}
+a {text-decoration:none;}
+header {position:fixed; top:0; left:0; width:100%; background: rgba(0,0,0,0.7); display:flex; justify-content:flex-end; align-items:center; padding:15px 50px; gap:50px; z-index:1000;}
+header .logo {font-size:28px; font-weight:700; color:#00ffff; margin-right:auto;}
+nav ul {display:flex; list-style:none; gap:30px; margin:0; padding:0;}
+nav ul li a {color:#fff; transition:0.3s;}
+#hero {height:80vh; background:#222; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding-top:80px;}
+#hero h1 {font-size:60px; color:#00ffff; margin:0; text-shadow:0 0 15px #00ffff;}
+#hero p {font-size:24px; color:#fff; margin:15px 0 30px 0;}
+#hero a {padding:12px 30px; background:#00ffff; color:#111; font-weight:600; border-radius:10px; transition:0.3s;}
+#hero a:hover {background:#00aaaa;}
+#features {padding:60px 20px; text-align:center; background: linear-gradient(135deg, #0d0d0d, #1a1a1a);}
+#features h2 {font-size:36px; margin-bottom:10px; color:#00ffff;}
+#features p {font-size:18px; margin-bottom:50px; color:#aaa;}
+.feature-cards {display:flex; justify-content:center; flex-wrap:wrap; gap:30px;}
+.card {background: rgba(0,255,255,0.1); border-radius:15px; padding:30px; width:250px; transition: transform 0.3s, box-shadow 0.3s;}
+.card .icon {font-size:40px; margin-bottom:15px;}
+.card h3 {font-size:22px; margin-bottom:10px;}
+.card p {color:#ccc;}
+#about {padding:60px 20px; background: linear-gradient(135deg, #1a1a1a, #0d0d0d); text-align:center;}
+#about h2 {font-size:36px; color:#00ffff; margin-bottom:10px;}
+#about p {font-size:18px; color:#aaa; max-width:800px; margin:0 auto 50px auto;}
+.about-cards {display:flex; justify-content:center; flex-wrap:wrap; gap:30px;}
+.about-card {background: rgba(0,255,255,0.1); border-radius:15px; padding:30px; width:250px; transition: transform 0.3s, box-shadow 0.3s;}
+.about-card .icon {font-size:40px; margin-bottom:15px;}
+.about-card h3 {font-size:22px; margin-bottom:10px;}
+.about-card p {color:#ccc;}
+#gallery {padding:60px 20px; text-align:center; background:#0d0d0d;}
+#gallery h2 {font-size:36px; color:#00ffff; margin-bottom:30px;}
+.gallery-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+#events {padding:60px 20px; text-align:center; background:#111;}
+#events h2 {font-size:36px; color:#00ffff; margin-bottom:30px;}
+.event {background: rgba(0,255,255,0.1); padding:20px; border-radius:15px; margin-bottom:20px; max-width:800px; margin-left:auto; margin-right:auto;}
+.event p {margin:0; color:#ccc;}
+#testimonial {padding:60px 20px; text-align:center; background: linear-gradient(135deg,#1a1a1a,#0d0d0d);}
+#testimonial h2 {font-size:36px; color:#00ffff; margin-bottom:30px;}
+.test-cards {display:flex; flex-wrap:wrap; justify-content:center; gap:30px;}
+.test-card {background: rgba(0,255,255,0.1); padding:30px; border-radius:15px; width:250px; transition: transform 0.3s, box-shadow 0.3s;}
+.test-card p {color:#ccc; font-style:italic;}
+.test-card h3 {margin-top:15px;}
+#stats {padding:60px 20px; text-align:center; background:#0d0d0d;}
+#stats h2 {font-size:36px; color:#00ffff; margin-bottom:30px;}
+.stats-cards {display:flex; flex-wrap:wrap; justify-content:center; gap:30px;}
+.stat-card {background: rgba(0,255,255,0.1); padding:30px; border-radius:15px; width:200px; transition: transform 0.3s, box-shadow 0.3s;}
+.stat-card h3 {font-size:36px; margin:0; color:#00ffff;}
+.stat-card p {margin:5px 0 0 0; color:#ccc;}
+#video {padding:60px 20px; text-align:center; background:#111;}
+#video h2 {font-size:36px; color:#00ffff; margin-bottom:30px;}
+#video p {color:#ccc;}
+footer {padding:20px; text-align:center; background:#111; color:#888;}
+footer a {color:#00ffff;}
+@media(max-width:800px){
+  nav ul {flex-direction:column; gap:15px;}
+  .feature-cards, .about-cards, .test-cards, .stats-cards {flex-direction:column; align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AURA RP</div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#features">Özellikler</a></li>
+      <li><a href="#about">Hakkında</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#events">Etkinlikler</a></li>
+      <li><a href="#testimonial">Yorumlar</a></li>
+      <li><a href="#stats">İstatistik</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="https://discord.gg/quWAxqxK4T" target="_blank">Discord</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hero">
+  <h1>AURA RP</h1>
+  <p>Los Santos’ta Gerçek Roleplay Deneyimi</p>
+  <a href="https://discord.gg/quWAxqxK4T" target="_blank">Sunucuya Katıl</a>
+</section>
+
+<section id="features">
+<h2>Neden AURA RP?</h2>
+<p>Sunucumuzda seni bekleyen deneyimler</p>
+<div class="feature-cards">
+<div class="card"><div class="icon">🎭</div><h3>Gerçekçi Roleplay</h3><p>Los Santos’ta gerçek hayat deneyimi yaşayın.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Özel Modlar</h3><p>Sunucuya özel modlarla farklı bir deneyim.</p></div>
+<div class="card"><div class="icon">📅</div><h3>Aktif Etkinlikler</h3><p>Her hafta düzenlenen etkinlikler ve yarışmalar.</p></div>
+<div class="card"><div class="icon">🏆</div><h3>Ödüller & Rank Sistemi</h3><p>Başarılarınızı görün ve ödüllerinizi kazanın.</p></div>
+</div>
+</section>
+
+<section id="about">
+<h2>AURA RP Hakkında</h2>
+<p>AURA RP, Los Santos’ta gerçek bir roleplay deneyimi sunan aktif bir MTA sunucusudur. Özel modlarımız ve düzenli etkinliklerimiz ile oyuncularımıza unutulmaz bir deneyim yaşatıyoruz.</p>
+<div class="about-cards">
+<div class="about-card"><div class="icon">🗺️</div><h3>Harita</h3><p>Los Santos haritasında özgür RP deneyimi.</p></div>
+<div class="about-card"><div class="icon">🎮</div><h3>Aktif Modlar</h3><p>Sunucuya özel modlarla farklı bir deneyim.</p></div>
+<div class="about-card"><div class="icon">📅</div><h3>Etkinlikler</h3><p>Haftalık yarışmalar ve RP etkinlikleri.</p></div>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Galeri</h2>
+<div class="gallery-grid">
+<!-- Şimdilik boş -->
+</div>
+</section>
+
+<section id="events">
+<h2>Son Etkinlikler</h2>
+<div class="event"><p>Şimdilik etkinlik yok.</p></div>
+</section>
+
+<section id="testimonial">
+<h2>Oyuncu Yorumları</h2>
+<div class="test-cards">
+<div class="test-card"><p>Şimdilik yorum yok.</p><h3>-</h3></div>
+</div>
+</section>
+
+<section id="stats">
+<h2>Sunucu İstatistikleri</h2>
+<div class="stats-cards">
+<div class="stat-card"><h3 id="onlineCount">0</h3><p>Online Oyuncu</p></div>
+<div class="stat-card"><h3>0</h3><p>Aktif Mod</p></div>
+<div class="stat-card"><h3>0</h3><p>Etkinlik</p></div>
+<div class="stat-card"><h3>0</h3><p>Harita</p></div>
+</div>
+</section>
+
+<section id="video">
+<h2>Tanıtım Videosu</h2>
+<p>Şimdilik video yok.</p>
+</section>
+
+<footer>
+<p>&copy; 2025 AURA RP | <a href="https://discord.gg/quWAxqxK4T" target="_blank">Discord Sunucu</a></p>
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card, .about-card, .test-card, .stat-card');
+cards.forEach(card=>{
+  card.addEventListener('mouseenter',()=>{card.style.transform='scale(1.05)'; card.style.boxShadow='0 0 20px rgba(0,255,255,0.5)';});
+  card.addEventListener('mouseleave',()=>{card.style.transform='scale(1)'; card.style.boxShadow='0 0 0 rgba(0,0,0,0)';});
+});
+
+// Online oyuncu sayısını Node.js proxy üzerinden çek
+async function updateOnlineCount() {
+  try {
+    const response = await fetch('http://localhost:3000/online');
+    const data = await response.json();
+    document.getElementById('onlineCount').innerText = data.online;
+  } catch(err) {
+    console.error('Online oyuncu alınamadı:', err);
+    document.getElementById('onlineCount').innerText = 0;
+  }
+}
+
+updateOnlineCount();
+setInterval(updateOnlineCount, 30000);
+</script>
+
+</body>
+</html>

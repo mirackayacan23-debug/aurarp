@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  justify-content: flex-end; /* Menü tamamen sağa */
+  align-items: center;
+  padding:15px 50px;
+  gap:50px;
+}
+header .logo {
+  margin-right:auto; /* Logo sola çekilir, menü sağda kalır */
+}
