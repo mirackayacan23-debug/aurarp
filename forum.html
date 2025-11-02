@@ -6,70 +6,115 @@
 <title>Aura RP Forum</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Poppins',sans-serif; background: radial-gradient(circle at top, #000010,#020202); color:#fff; }
-header { background: rgba(0,0,0,0.85); border-bottom:2px solid #0ff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
-header h1 { font-family:'Orbitron',sans-serif; font-size:28px; color:#0ff; }
-nav a { color:#fff; text-decoration:none; margin:0 15px; transition:.3s;}
-nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff;}
-.container { max-width:1200px; margin:30px auto; padding:0 20px; }
-.forum-card { background: rgba(0,0,0,0.5); border:2px solid #00ffff55; border-radius:15px; padding:15px; margin-bottom:15px; }
-.forum-card h3 { color:#0ff; margin:0 0 5px 0; }
-.forum-card p { color:#ccc; margin:0; font-size:14px; }
-.forum-actions { text-align:right; margin-bottom:20px; }
-.forum-actions button { background:transparent; border:2px solid #0ff; color:#0ff; padding:5px 15px; border-radius:50px; cursor:pointer; transition:.3s; }
-.forum-actions button:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins',sans-serif; background:#000; color:#fff; }
+header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
+header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; }
+nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
+nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
+.user-bar { text-align:right; padding:10px 50px; margin-top:70px; font-weight:500; color:#0ff; }
+
+/* Forum Container */
+.forum-container { max-width:1200px; margin:120px auto 50px; padding:0 20px; }
+.topic { background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; margin-bottom:20px; display:flex; gap:15px; transition:.3s; }
+.topic:hover { transform:scale(1.02); box-shadow:0 0 15px #0ff; }
+.topic img { width:60px; height:60px; border-radius:50%; border:2px solid #0ff; }
+.topic-content { flex:1; }
+.topic-content h4 { color:#0ff; margin-bottom:5px; }
+.topic-content p { color:#ccc; font-size:14px; }
+
+/* Yeni konu */
+.new-topic { background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; margin-bottom:30px; text-align:center; }
+.new-topic input, .new-topic textarea { width:100%; padding:10px; margin:10px 0; border-radius:10px; border:2px solid #0ff; background:#000; color:#fff; }
+.new-topic button { padding:10px 20px; border-radius:50px; border:2px solid #0ff; background:transparent; color:#0ff; cursor:pointer; transition:.3s; }
+.new-topic button:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
+
+/* Footer */
+footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-top:2px solid #0ff; color:#ccc; font-size:14px; }
+footer a { color:#0ff; text-decoration:none; }
+footer a:hover { text-shadow:0 0 10px #0ff; }
 </style>
 </head>
 <body>
 
 <header>
-<h1>Aura RP Forum</h1>
+<h1>Aura RP</h1>
 <nav>
   <a href="index.html">Ana Sayfa</a>
-  <a href="market.html">Market</a>
   <a href="forum.html">Forum</a>
+  <a href="market.html">Market</a>
   <a href="sepet.html">🛒 Sepet</a>
 </nav>
 </header>
 
-<div class="container">
-  <div class="forum-actions">
-    <button id="newTopic">Yeni Konu Aç</button>
+<div class="user-bar" id="userStatus"></div>
+
+<div class="forum-container">
+  <div class="new-topic">
+    <h3>Yeni Konu Oluştur</h3>
+    <input type="text" id="topicTitle" placeholder="Konu Başlığı">
+    <textarea id="topicContent" rows="4" placeholder="Mesajınız..."></textarea>
+    <button onclick="createTopic()">Oluştur</button>
+    <p class="message" id="msg"></p>
   </div>
-  <div id="forumContainer"></div>
+  <div id="topicsList"></div>
 </div>
 
-<script>
-// Basit forum sistemi (localStorage)
-let forumTopics = JSON.parse(localStorage.getItem("aura_forum")) || [];
+<footer>
+<p>© 2025 Aura Roleplay | <a href="https://discord.gg/quWAxqxK4T">Discord'a Katıl</a></p>
+</footer>
 
-function renderForum(){
-  const container = document.getElementById("forumContainer");
-  container.innerHTML = "";
-  forumTopics.forEach((topic, i)=>{
-    const card = document.createElement("div");
-    card.className="forum-card";
-    card.innerHTML=`
-      <h3>${topic.title}</h3>
-      <p>${topic.content}</p>
-      <p style="color:#0ff; font-size:12px;">Yazan: ${topic.author}</p>
+<script>
+// Kullanıcı durumu
+const userStatus = document.getElementById('userStatus');
+const user = localStorage.getItem('auraRP_user');
+const loggedIn = localStorage.getItem('auraRP_loggedIn');
+if(loggedIn && user){
+  userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
+}else{
+  userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
+}
+
+// Forum konuları
+let topics = [];
+function createTopic(){
+  const title = document.getElementById('topicTitle').value;
+  const content = document.getElementById('topicContent').value;
+  if(title && content){
+    const topic = { title, content, author: user || "Anonim", avatar:"img/default-avatar.png" };
+    topics.unshift(topic);
+    renderTopics();
+    document.getElementById('topicTitle').value = '';
+    document.getElementById('topicContent').value = '';
+    document.getElementById('msg').textContent = "Konu oluşturuldu!";
+  }else{
+    document.getElementById('msg').textContent = "Lütfen başlık ve mesaj girin!";
+  }
+}
+
+function renderTopics(){
+  const container = document.getElementById('topicsList');
+  container.innerHTML = '';
+  topics.forEach(t=>{
+    const div = document.createElement('div');
+    div.className = 'topic';
+    div.innerHTML = `
+      <img src="${t.avatar}" alt="${t.author}">
+      <div class="topic-content">
+        <h4>${t.title} <small style="color:#0ff">(${t.author})</small></h4>
+        <p>${t.content}</p>
+      </div>
     `;
-    container.appendChild(card);
+    container.appendChild(div);
   });
 }
 
-document.getElementById("newTopic").addEventListener("click",()=>{
-  const title = prompt("Konu Başlığı:");
-  if(!title) return;
-  const content = prompt("Konu İçeriği:");
-  if(!content) return;
-  const author = localStorage.getItem("auraRP_user") || "Anonim";
-  forumTopics.push({title,content,author});
-  localStorage.setItem("aura_forum",JSON.stringify(forumTopics));
-  renderForum();
-});
-
-renderForum();
+// Demo için örnek konular
+topics = [
+  { title:"Rehber Başvuruları Sonuçlandı!", content:"NYYX tarafından 11 Ekim 2025 tarihinde.", author:"NYYX", avatar:"img/default-avatar.png" },
+  { title:"Dupont dikimimde sorun oluştu", content:"Hasan_kara 2 saat önce.", author:"Hasan_kara", avatar:"img/default-avatar.png" }
+];
+renderTopics();
 </script>
 
 </body>
