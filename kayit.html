@@ -1,19 +1,44 @@
-<h2>Kayıt Ol</h2>
-<form id="registerForm">
-  <input type="text" placeholder="Kullanıcı Adı" required>
-  <input type="email" placeholder="E-posta" required>
-  <input type="password" placeholder="Şifre" required>
-  <button type="submit">Kayıt Ol</button>
-</form>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura RP Kayıt</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{background:#0d0d0d;color:#fff;font-family:'Poppins',sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}
+.container{background:rgba(0,0,0,0.6);padding:50px;border:2px solid #0ff;border-radius:20px;text-align:center;}
+.container h1{font-family:'Orbitron',sans-serif;color:#0ff;margin-bottom:30px;}
+.container input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:1px solid #0ff;background:#111;color:#fff;}
+.container button{padding:15px 50px;margin-top:20px;border:2px solid #0ff;color:#0ff;border-radius:50px;cursor:pointer;transition:.3s;text-shadow:0 0 5px #0ff;}
+.container button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 30px #0ff;transform:scale(1.05);}
+a.back-btn{display:block;margin-top:20px;color:#0ff;text-decoration:none;}
+a.back-btn:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Aura RP Kayıt / Giriş</h1>
+<input type="text" id="username" placeholder="Kullanıcı Adı">
+<input type="password" id="password" placeholder="Şifre">
+<button id="registerBtn">Kayıt / Giriş</button>
+<a href="index.html" class="back-btn">Ana Sayfaya Dön</a>
+</div>
 
 <script>
-const form = document.getElementById('registerForm');
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    // localStorage ile kayıt simülasyonu
-    const username = form[0].value;
+const btn = document.getElementById('registerBtn');
+btn.addEventListener('click', () => {
+  const username = document.getElementById('username').value;
+  if(username){ 
     localStorage.setItem('auraRP_user', username);
-    alert('Kayıt başarıyla tamamlandı! Artık Giriş Yapabilirsiniz.');
-    window.location.href = 'index.html'; // ana sayfaya dön
+    alert('Kayıt/Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz.');
+    window.location.href = 'index.html';
+  }else{
+    alert('Lütfen kullanıcı adı girin!');
+  }
 });
 </script>
+
+</body>
+</html>
