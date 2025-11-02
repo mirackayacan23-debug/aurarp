@@ -106,7 +106,12 @@ h2 {
   font-weight: 600;
   margin: 10px 0;
 }
-.card a {
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.card button, .card a {
   background: transparent;
   border: 2px solid #0ff;
   color: #0ff;
@@ -114,9 +119,9 @@ h2 {
   border-radius: 50px;
   text-decoration: none;
   transition: .3s;
-  display: inline-block;
+  cursor: pointer;
 }
-.card a:hover {
+.card button:hover, .card a:hover {
   background: #0ff;
   color: #000;
   box-shadow: 0 0 15px #0ff;
@@ -150,7 +155,7 @@ footer a:hover { text-shadow: 0 0 10px #0ff; }
     <a href="index.html">Ana Sayfa</a>
     <a href="forum.html">Forum</a>
     <a href="market.html">Market</a>
-    <a href="#">Kurallar</a>
+    <a href="sepet.html">🛒 Sepet</a>
   </nav>
 </header>
 
@@ -158,95 +163,24 @@ footer a:hover { text-shadow: 0 0 10px #0ff; }
 
 <div class="container">
 
-  <!-- VIP PAKETLER -->
   <div class="market-section">
     <h2>VIP Paketler</h2>
-    <div class="market-grid">
-      <div class="card">
-        <img src="https://i.imgur.com/T0YAvW8.png" alt="Bronz VIP">
-        <h3>Bronz VIP</h3>
-        <p>Özel araç, skin ve /vip tagı içerir.</p>
-        <p class="price">₺50</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/x2pN3kh.png" alt="Altın VIP">
-        <h3>Altın VIP</h3>
-        <p>Bronz avantajlarına ek özel ev hakkı.</p>
-        <p class="price">₺100</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/XzUJj5M.png" alt="Elmas VIP">
-        <h3>Elmas VIP</h3>
-        <p>Tüm ayrıcalıklar + özel araç.</p>
-        <p class="price">₺150</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-    </div>
+    <div class="market-grid" id="vipProducts"></div>
   </div>
 
-  <!-- ARAÇLAR -->
   <div class="market-section">
-    <h2>Özel Araçlar</h2>
-    <div class="market-grid">
-      <div class="card">
-        <img src="https://i.imgur.com/JDoDthq.png" alt="Spor Araç">
-        <h3>Spor Araç</h3>
-        <p>Hız ve tasarımda özel performans.</p>
-        <p class="price">₺120</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/jAs0MP4.png" alt="Off-Road Araç">
-        <h3>Off-Road Araç</h3>
-        <p>Arazide üstün performans sağlar.</p>
-        <p class="price">₺90</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-    </div>
+    <h2>Araçlar</h2>
+    <div class="market-grid" id="carProducts"></div>
   </div>
 
-  <!-- EVLER -->
   <div class="market-section">
     <h2>Evler</h2>
-    <div class="market-grid">
-      <div class="card">
-        <img src="https://i.imgur.com/8ecjA6F.png" alt="Los Santos Villa">
-        <h3>Los Santos Villa</h3>
-        <p>3 araçlık garaj + özel iç dizayn.</p>
-        <p class="price">₺250</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/Zn8lsvK.png" alt="Beach House">
-        <h3>Beach House</h3>
-        <p>Deniz manzaralı, nadir villa modeli.</p>
-        <p class="price">₺300</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-    </div>
+    <div class="market-grid" id="houseProducts"></div>
   </div>
 
-  <!-- EKSTRALAR -->
   <div class="market-section">
     <h2>Ekstralar</h2>
-    <div class="market-grid">
-      <div class="card">
-        <img src="https://i.imgur.com/GNNOtQs.png" alt="İsim Değişikliği">
-        <h3>İsim Değişikliği</h3>
-        <p>Karakter adını değiştirmeni sağlar.</p>
-        <p class="price">₺15</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/evAsPKX.png" alt="Skin Değişikliği">
-        <h3>Skin Değişikliği</h3>
-        <p>Yeni skin seçme hakkı.</p>
-        <p class="price">₺20</p>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
-    </div>
+    <div class="market-grid" id="extraProducts"></div>
   </div>
 
 </div>
@@ -262,6 +196,57 @@ if(user){
   userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
 }else{
   userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
+}
+
+// ÜRÜNLER
+const products = {
+  vip: [
+    {name:"Bronz VIP", price:50, img:"https://i.ibb.co/0yZf7Gp/vip1.jpg", desc:"Temel avantajlar ve özel tag."},
+    {name:"Altın VIP", price:100, img:"https://i.ibb.co/b3MhtCh/vip2.jpg", desc:"Ev, araç, özel tag ve skin hakları."},
+    {name:"Elmas VIP", price:150, img:"https://i.ibb.co/sWw1h7Z/vip3.jpg", desc:"Tüm avantajlar + özel villa."}
+  ],
+  cars: [
+    {name:"Spor Araç", price:120, img:"https://i.ibb.co/vXNmj3z/car1.jpg", desc:"Yüksek hız ve premium tasarım."},
+    {name:"Off-Road Araç", price:90, img:"https://i.ibb.co/XZYrT0F/car2.jpg", desc:"Arazide üstün performans sağlar."}
+  ],
+  houses: [
+    {name:"Los Santos Villa", price:250, img:"https://i.ibb.co/fFJh3dL/house1.jpg", desc:"3 araçlık garaj, özel manzara."},
+    {name:"Beach House", price:300, img:"https://i.ibb.co/GdcDzCv/house2.jpg", desc:"Deniz manzaralı, özel iç mekan."}
+  ],
+  extras: [
+    {name:"İsim Değişikliği", price:15, img:"https://i.ibb.co/2qX0NN4/name.jpg", desc:"Karakter ismini değiştir."},
+    {name:"Skin Değişikliği", price:20, img:"https://i.ibb.co/BtCM5JL/skin.jpg", desc:"Yeni skin seçme hakkı."}
+  ]
+};
+
+// Ürünleri yükle
+function renderProducts(sectionId, items){
+  const container = document.getElementById(sectionId);
+  container.innerHTML = items.map(p => `
+    <div class="card">
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <p class="price">₺${p.price}</p>
+      <div class="buttons">
+        <button onclick='addToCart(${JSON.stringify(p)})'>Sepete Ekle</button>
+        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderProducts("vipProducts", products.vip);
+renderProducts("carProducts", products.cars);
+renderProducts("houseProducts", products.houses);
+renderProducts("extraProducts", products.extras);
+
+// SEPET
+function addToCart(product){
+  let cart = JSON.parse(localStorage.getItem("aura_cart")) || [];
+  cart.push(product);
+  localStorage.setItem("aura_cart", JSON.stringify(cart));
+  alert(product.name + " sepete eklendi!");
 }
 </script>
 
