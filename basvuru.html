@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ekip Başvurusu | AuraRP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ekip Başvurusu — AuraRP</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="nav">
@@ -20,84 +19,67 @@
     </div>
   </nav>
 
-  <section class="page">
-    <h1>🧩 Ekip Başvurusu</h1>
-    <p>Ekibe katılmak için aşağıdaki formu doldur. Gönderdiğinde otomatik olarak Discord’a düşer 💬</p>
+  <main class="page">
+    <h1>Ekip Başvurusu</h1>
+    <p>Başvurular Discord kanalına düşecek şekilde ayarlanabilir (webhook).</p>
 
-    <div class="form-glass animated-form">
-      <form id="basvuruForm" class="form">
+    <div class="form-glass">
+      <form id="applyForm" class="animated-form">
         <div class="field">
-          <input type="text" id="adsoyad" placeholder=" " required />
-          <label>Ad Soyad</label>
+          <input id="isimtag" type="text" placeholder=" " required>
+          <label for="isimtag">İsim ve Discord Etiketin</label>
         </div>
-
         <div class="field">
-          <input type="text" id="discord" placeholder=" " required />
-          <label>Discord Kullanıcı Adı</label>
-        </div>
-
-        <div class="field">
-          <select id="rol" required>
-            <option value="" disabled selected>Başvurmak İstediğin Rol</option>
-            <option>Admin Ekibi</option>
-            <option>Destek Ekibi</option>
-            <option>EMS</option>
-            <option>LSPD</option>
-            <option>Mekanik</option>
+          <select id="basvuruPoz" required>
+            <option value="" disabled selected>Pozisyon seç</option>
+            <option>Yetkili</option>
+            <option>Destek</option>
+            <option>Developer</option>
+            <option>Grafiker</option>
           </select>
         </div>
-
         <div class="field">
-          <textarea id="neden" placeholder=" " rows="6" required></textarea>
-          <label>Neden bu ekibe katılmak istiyorsun?</label>
+          <textarea id="nedenTxt" placeholder=" " rows="6" required></textarea>
+          <label for="nedenTxt">Kendini tanıt ve neden seçilmeli?</label>
         </div>
-
-        <button type="submit" class="btn-primary">Başvuru Gönder</button>
+        <button type="submit" class="btn-primary">Başvuruyu Gönder</button>
       </form>
-      <p id="sonuc" style="margin-top:15px;"></p>
+      <p id="applyResult" style="margin-top:12px;color:var(--muted)"></p>
     </div>
-  </section>
+  </main>
 
-  <footer>© 2025 AuraRP. Tüm hakları saklıdır.</footer>
+  <footer>© 2025 AuraRP</footer>
 
-  <script>
-    const form = document.getElementById("basvuruForm");
-    const sonuc = document.getElementById("sonuc");
+<script>
+  // Webhook gönderimi için buraya webhook URL'sini koy:
+  const applyWebhookURL = ''; // örn: "https://discord.com/api/webhooks/..."
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  const applyForm = document.getElementById('applyForm');
+  const applyResult = document.getElementById('applyResult');
 
-      const adsoyad = document.getElementById("adsoyad").value;
-      const discord = document.getElementById("discord").value;
-      const rol = document.getElementById("rol").value;
-      const neden = document.getElementById("neden").value;
+  applyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const isim = document.getElementById('isimtag').value.trim();
+    const poz = document.getElementById('basvuruPoz').value;
+    const neden = document.getElementById('nedenTxt').value.trim();
 
-      const webhookURL = "https://discord.com/api/webhooks/1434629884033892472/Bo7_H2vDomMUhMc7yt0xZErw7Gt7ziIVkmk5keHF4_tmwaASaGBjmC-CQoaCnkeBcS1G"; // 🔹 Buraya kendi webhook linkini yapıştır!
+    if(!applyWebhookURL){
+      applyResult.textContent = '⚠️ Gönderim aktif değil. Webhook URL ayarlanmamış.';
+      return;
+    }
 
-      const payload = {
-        content: `📨 **Yeni Ekip Başvurusu**\n**Ad Soyad:** ${adsoyad}\n**Discord:** ${discord}\n**Rol:** ${rol}\n**Neden:** ${neden}`
-      };
+    const payload = {
+      content: `📨 Yeni Başvuru\n**İsim:** ${isim}\n**Pozisyon:** ${poz}\n**Neden:** ${neden}`
+    };
 
-      try {
-        const response = await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-          sonuc.textContent = "✅ Başvurun başarıyla gönderildi!";
-          sonuc.style.color = "#4ade80";
-          form.reset();
-        } else {
-          sonuc.textContent = "⚠️ Bir hata oluştu. Tekrar dene.";
-          sonuc.style.color = "#f87171";
-        }
-      } catch (error) {
-        sonuc.textContent = "🚫 Bağlantı kurulamadı.";
-        sonuc.style.color = "#f87171";
-      }
-    });
-  </script>
+    try {
+      const r = await fetch(applyWebhookURL, {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+      });
+      if(r.ok){ applyResult.textContent = '✅ Başvuru gönderildi!'; applyForm.reset(); }
+      else { applyResult.textContent = '⚠️ Gönderim hatası.'; }
+    } catch (err) { applyResult.textContent = '🚫 Ağa bağlanılamadı.'; }
+  });
+</script>
 </body>
 </html>
