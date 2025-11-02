@@ -1,111 +1,196 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura RP - Ana Sayfa</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; background:#000; color:#fff; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA RP</title>
+    <style>
+        /* Genel ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
-/* Header */
-header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
-header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; }
-nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
-nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
+        body {
+            background-color: #121212;
+            color: #fff;
+        }
 
-/* Kullanıcı durumu sağ üst */
-.user-bar { text-align:right; padding:10px 50px; margin-top:70px; font-weight:500; color:#0ff; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-/* Hero */
-.hero { position:relative; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
-.hero img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.4); }
-.hero h2 { font-family:'Orbitron',sans-serif; font-size:60px; color:#0ff; text-shadow:0 0 25px #0ff; z-index:1; margin-bottom:20px; }
-.hero p { font-size:22px; color:#ccc; z-index:1; margin-bottom:40px; max-width:800px; }
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #1c1c1c;
+        }
 
-/* Butonlar */
-.hero .btn { position:relative; background:transparent; border:2px solid #0ff; color:#0ff; padding:15px 35px; border-radius:50px; font-weight:600; font-size:16px; margin:10px; text-decoration:none; z-index:1; transition:.3s; display:inline-block; }
-.hero .btn:hover { background:#0ff; color:#000; box-shadow:0 0 25px #0ff; transform:scale(1.05); }
+        nav .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #ff9800;
+        }
 
-/* Bölümler */
-.section { padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; background:rgba(0,0,0,0.6); border-radius:20px; border:2px solid #0ff; margin-bottom:50px; }
-.section h3 { font-family:'Orbitron',sans-serif; font-size:36px; color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:20px; }
-.section p { color:#ccc; font-size:18px; line-height:1.6; max-width:900px; margin:0 auto; }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-/* Footer */
-footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-top:2px solid #0ff; color:#ccc; font-size:14px; }
-footer a { color:#0ff; text-decoration:none; }
-footer a:hover { text-shadow:0 0 10px #0ff; }
-</style>
+        nav ul li {
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        nav ul li:hover {
+            color: #ff9800;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://i.ibb.co/0C0vP7y/city-bg.jpg') center/cover no-repeat;
+            height: 80vh;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ff9800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero .btn {
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero .btn-start {
+            background-color: #ff9800;
+            color: #121212;
+            border: none;
+        }
+
+        .hero .btn-start:hover {
+            background-color: #e68a00;
+        }
+
+        .hero .btn-login {
+            background-color: transparent;
+            color: #ff9800;
+            border: 2px solid #ff9800;
+        }
+
+        .hero .btn-login:hover {
+            background-color: #ff9800;
+            color: #121212;
+        }
+
+        /* İstatistikler */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px 20px;
+            background-color: #1c1c1c;
+        }
+
+        .stat {
+            background-color: #222;
+            padding: 30px 40px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .stat h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #ff9800;
+        }
+
+        .stat p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<h1>Aura RP</h1>
-<nav>
-  <a href="index.html">Ana Sayfa</a>
-  <a href="forum.html">Forum</a>
-  <a href="market.html">Market</a>
-  <a href="sepet.html">🛒 Sepet</a>
-  <a href="https://discord.gg/quWAxqxK4T" target="_blank" style="color:#0ff; border:2px solid #0ff; padding:5px 15px; border-radius:50px; margin-left:15px; text-decoration:none; transition:.3s;">Hemen Katıl</a>
-</nav>
-</header>
+    <nav>
+        <div class="logo">AURARP</div>
+        <ul>
+            <li>Karakterler</li>
+            <li>Kurallar</li>
+            <li>İstatistikler</li>
+        </ul>
+    </nav>
 
-<div class="user-bar" id="userStatus"></div>
+    <section class="hero">
+        <h1><span>AURA</span> ROLEPLAY</h1>
+        <p>En gerçekçi GTA San Andreas Roleplay deneyimi sizi bekliyor. Kendi hikayenizi yazın, karakterinizi yaşayın.</p>
+        <div>
+            <button class="btn btn-start">Hemen Başla</button>
+            <button class="btn btn-login">Giriş Yap</button>
+        </div>
+    </section>
 
-<section class="hero">
-  <img src="img/banner.jpg" alt="Aura RP Banner">
-  <h2>Aura Roleplay Sunucusuna Hoşgeldiniz!</h2>
-  <p>GTA SA & MTA RP deneyimini neon ve janti tarzıyla yaşayın. VIP paketler ve etkinliklerle RP keyfinizi katlayın.</p>
-  <a href="kayit.html" class="btn">Kayıt / Giriş Yap</a>
-  <a href="market.html" class="btn">Market</a>
-</section>
-
-<section class="section">
-<h3>Sunucu Hakkında</h3>
-<p>Aura RP, Los Santos haritasında adil ve eğlenceli RP deneyimi sunan bir sunucudur. Görevler, etkinlikler ve VIP avantajlarıyla oyunculara keyifli bir ortam sağlar.</p>
-</section>
-
-<section class="section">
-<h3>Öne Çıkan Paketler</h3>
-<div class="slider-container">
-  <div class="slider" id="vipSlider" style="display:flex; gap:20px; overflow-x:auto;">
-    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
-      <h4>Bronz VIP</h4>
-      <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p>
-    </div>
-    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
-      <h4>Altın VIP</h4>
-      <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p>
-    </div>
-    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
-      <h4>Elmas VIP</h4>
-      <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<section class="section">
-<h3>Etkinlikler</h3>
-<p>Haftalık yarışmalar, görevler ve ödüller ile RP deneyiminizi sürekli canlı tutuyoruz. Discord topluluğumuza katılarak tüm etkinliklerden haberdar olabilirsiniz.</p>
-</section>
-
-<footer>
-<p>© 2025 Aura Roleplay | <a href="https://discord.gg/quWAxqxK4T">Discord'a Katıl</a></p>
-</footer>
-
-<script>
-const userStatus = document.getElementById('userStatus');
-const user = localStorage.getItem('auraRP_user');
-const loggedIn = localStorage.getItem('auraRP_loggedIn');
-if(loggedIn && user){
-  userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
-}else{
-  userStatus.innerHTML = ``; // Ana sayfada kayıt/giriş görünmez
-}
-</script>
+    <section class="stats">
+        <div class="stat">
+            <h2>42</h2>
+            <p>Aktif Oyuncu</p>
+        </div>
+        <div class="stat">
+            <h2>0</h2>
+            <p>Toplam Oyuncu</p>
+        </div>
+        <div class="stat">
+            <h2>0</h2>
+            <p>Onaylı Karakter</p>
+        </div>
+    </section>
 
 </body>
 </html>
