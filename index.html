@@ -1,64 +1,297 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AuraRP - Roleplay Sunucusu</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a2e0e6adf8.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraRP | Ana Sayfa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* 🎨 AuraRP Genel Stil Dosyası */
+
+    :root {
+      --bg: #0f1115;
+      --surface: #181b22;
+      --accent: #7c3aed;
+      --text: #ffffff;
+      --muted: #b0b0b0;
+      --radius: 14px;
+      --shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ------------------- Navigasyon ------------------- */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(24,27,34,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 48px;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--accent);
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    /* ------------------- Hero ------------------- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 160px 80px 80px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1 1 500px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px var(--accent);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero-image {
+      flex: 1 1 400px;
+      max-width: 500px;
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
+
+    /* ------------------- Bilgi Kartları ------------------- */
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 32px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .card i {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    /* ------------------- Discord Bölümü ------------------- */
+    .discord {
+      text-align: center;
+      padding: 80px 24px;
+      background: #15171d;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .discord h2 {
+      color: var(--accent);
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .discord p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ------------------- Footer ------------------- */
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ------------------- Responsive ------------------- */
+    @media (max-width: 900px) {
+      .nav {
+        padding: 14px 24px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 120px 24px 60px;
+      }
+
+      .hero-content p {
+        margin: 0 auto 24px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<!-- 🔝 Navigasyon -->
-<header class="nav">
-  <div class="brand">
-    <div style="width:10px;height:26px;background:var(--accent);border-radius:3px;"></div>
-    AUR<span style="color:#fff">RP</span>
-  </div>
-  <nav class="nav-links">
-    <a href="characters.html">Karakterler</a>
-    <a href="rules.html">Kurallar</a>
-    <a href="stats.html">İstatistikler</a>
-  </nav>
-</header>
-
-<!-- 🏠 Hero Bölümü -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Gerçek Rol, Gerçek Hikaye</h1>
-    <p>AuraRP, en kaliteli FiveM roleplay deneyimini sunar.  
-    Kurallarına uygun, eğlenceli ve sürükleyici bir dünyaya katıl.</p>
-    <div class="hero-buttons">
-      <a href="characters.html" class="btn-primary">Onaylı Karakterler</a>
-      <a href="rules.html" class="btn-secondary">Sunucu Kuralları</a>
+  <nav class="nav">
+    <div class="brand">AuraRP</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Ana Sayfa</a>
+      <a href="characters.html">Karakterler</a>
+      <a href="rules.html">Kurallar</a>
+      <a href="hikaye.html">Hikayeni Yaz</a>
+      <a href="basvuru.html">Ekip Başvurusu</a>
+      <a href="etkinlik.html">Etkinlikler</a>
     </div>
-  </div>
-  <img src="assets/hero.png" alt="AuraRP Görseli" class="hero-image">
-</section>
+  </nav>
 
-<!-- 💡 Bilgi Kartları -->
-<section class="info">
-  <div class="card">
-    <i class="fa-solid fa-users"></i>
-    <h3>Topluluk</h3>
-    <p>Aktif, samimi ve deneyimli roleplay oyuncularıyla dolu bir ortam.</p>
-  </div>
-  <div class="card">
-    <i class="fa-solid fa-shield-halved"></i>
-    <h3>Adalet</h3>
-    <p>Adil yönetim, tutarlı kararlar ve şeffaf yönetim ekibi.</p>
-  </div>
-  <div class="card">
-    <i class="fa-solid fa-trophy"></i>
-    <h3>Rekabet</h3>
-    <p>İstatistik tablosu ile başarılarını göster, en iyi karakter sen ol!</p>
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Aura Roleplay'e Hoş Geldin</h1>
+      <p>Gerçekçi senaryolar, güçlü topluluk ve özgün hikayelerle dolu bir dünya seni bekliyor.</p>
+      <div class="hero-buttons">
+        <a href="rules.html" class="btn-primary">Kuralları Gör</a>
+        <a href="characters.html" class="btn-secondary">Karakterleri İncele</a>
+      </div>
+    </div>
+    <img src="https://i.imgur.com/7x5cN8F.png" alt="AuraRP" class="hero-image" />
+  </section>
 
-<!-- 📞 Footer -->
-<footer>
-  <small>© 2025 AuraRP — Tüm hakları saklıdır.</small>
-</footer>
+  <section class="info">
+    <div class="card">
+      <i>🌆</i>
+      <h3>Gerçekçi RP</h3>
+      <p>Gelişmiş sistemler ve detaylı hikayelerle dolu şehir yaşamı.</p>
+    </div>
+    <div class="card">
+      <i>🚔</i>
+      <h3>Aktif Ekipler</h3>
+      <p>Polis, EMS, mekanik ve daha fazlası seni bekliyor.</p>
+    </div>
+    <div class="card">
+      <i>🎭</i>
+      <h3>Topluluk Etkinlikleri</h3>
+      <p>Haftalık yarışlar, festivaller ve RP etkinlikleri.</p>
+    </div>
+  </section>
 
+  <section class="discord">
+    <h2>💬 Topluluğumuza Katıl</h2>
+    <p>AuraRP’nin resmi Discord sunucusuna gel, ekiple tanış!</p>
+    <iframe src="https://discord.com/widget?id=1312871986641330277&theme=dark"
+      width="100%" height="350" allowtransparency="true" frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+    <a href="https://discord.gg/quWAxqxK4T" class="btn-primary" target="_blank">Sunucuya Katıl</a>
+  </section>
+
+  <footer>© 2025 AuraRP. Tüm hakları saklıdır.</footer>
 </body>
 </html>
