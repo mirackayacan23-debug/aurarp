@@ -28,8 +28,9 @@ header nav a:hover{color:#0ff;}
 .button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 25px #0ff;transform:scale(1.05);}
 
 .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.topbar .user-status a{color:#0ff;margin-left:15px;transition:.3s;}
-.topbar .user-status a:hover{color:#0fff;}
+.topbar .user-status span{color:#0ff;}
+.topbar .user-status a{color:#0ff;margin-left:15px;transition:.3s;text-decoration:none;}
+.topbar .user-status a:hover{color:#fff;}
 
 /* Responsive */
 @media(max-width:1024px){
@@ -47,6 +48,10 @@ header nav a:hover{color:#0ff;}
 <a href="index.html">AnaSayfa</a>
 <a href="market.html">Market</a>
 <a href="forum.html">Forum</a>
+<a href="#">Staff</a>
+<a href="#">Blog Yazıları</a>
+<a href="#">Çevrimiçi kullanıcılar</a>
+<a href="#">Leaderboard</a>
 </nav>
 </header>
 
@@ -54,7 +59,7 @@ header nav a:hover{color:#0ff;}
 
 <div class="sidebar">
 <h3>Menü</h3>
-<a href="#">Forums</a>
+<a href="forum.html">Forums</a>
 <a href="#">Blog Yazıları</a>
 <a href="#">Staff</a>
 <a href="#">Çevrimiçi kullanıcılar</a>
@@ -67,34 +72,38 @@ header nav a:hover{color:#0ff;}
 <div class="main">
 <div class="topbar">
 <div class="new-topic"><a href="#" class="button">Yeni Konu Aç</a></div>
-<div class="user-status">
-<span>Zaten üye misin?</span> <a href="kayit.html">Giriş Yap</a> / <a href="kayit.html">Kayıt Ol</a>
+<div class="user-status" id="userStatus">
+<!-- Buraya kayıtlı kullanıcı adı veya Giriş Yap / Kayıt Ol gelecek -->
 </div>
 </div>
 
-<!-- Duyurular -->
+<!-- Kategoriler -->
 <div class="section">
 <h2>Duyurular</h2>
-<p class="meta">Yazan: NYYX, 11 Ekim</p>
-<p>03.10.2025 - 10.10.2025 Rehber Başvuruları Sonuçlandı !!</p>
+<p class="meta">Kategoride hiç mesaj yok.</p>
 </div>
-
-<!-- Sunucu Politikaları -->
-<div class="section">
-<h2>Sunucu Politikaları</h2>
-<p class="meta">Yazan: Hasan_kara, 2 saat önce</p>
-<p>dupont dikimimde bir sorun oluştu</p>
-</div>
-
-<!-- Genel Sohbet -->
 <div class="section">
 <h2>Genel</h2>
-<p class="meta">Yazan: KullanıcıX, 1 saat önce</p>
-<p>Merhaba! Yeni oyuncular kendilerini tanıtabilir.</p>
+<p class="meta">Kategoride hiç mesaj yok.</p>
+</div>
+<div class="section">
+<h2>Destek</h2>
+<p class="meta">Kategoride hiç mesaj yok.</p>
 </div>
 
 </div>
 </div>
+
+<script>
+const userStatus = document.getElementById('userStatus');
+const user = localStorage.getItem('auraRP_user');
+
+if(user){
+  userStatus.innerHTML = `<span>Hoşgeldin, ${user}!</span>`;
+}else{
+  userStatus.innerHTML = `<span>Zaten üye misin?</span> <a href="kayit.html">Giriş Yap</a> / <a href="kayit.html">Kayıt Ol</a>`;
+}
+</script>
 
 </body>
 </html>
