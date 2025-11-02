@@ -7,12 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
+body { font-family:'Poppins',sans-serif; background:#000; color:#fff; }
 
 /* Header */
 header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
 header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; }
-nav { display:flex; align-items:center; }
 nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
 nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 
@@ -69,7 +68,7 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
   <img src="img/banner.jpg" alt="Aura RP Banner">
   <h2>Aura Roleplay Sunucusuna Hoşgeldiniz!</h2>
   <p>GTA SA & MTA RP deneyimini neon ve janti tarzıyla yaşayın. VIP paketler ve etkinliklerle RP keyfinizi katlayın.</p>
-  <a href="kayit.html" class="btn">Kayıt Ol / Giriş Yap</a>
+  <a href="kayit.html" class="btn">Kayıt / Giriş Yap</a>
   <a href="market.html" class="btn">Market</a>
 </section>
 
@@ -82,9 +81,6 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 <h3>Öne Çıkan Paketler</h3>
 <div class="slider-container">
   <div class="slider" id="vipSlider">
-    <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
-    <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
-    <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
     <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
     <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
     <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
@@ -108,7 +104,7 @@ const loggedIn = localStorage.getItem('auraRP_loggedIn');
 if(loggedIn && user){
   userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
 }else{
-  userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
+  userStatus.innerHTML = ``; // Kayıt/Giriş metni artık ana sayfada görünmeyecek
 }
 
 // Slider sonsuz loop
