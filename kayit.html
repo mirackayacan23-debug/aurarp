@@ -3,40 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura RP Kayıt</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Aura RP Kayıt / Giriş</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body{background:#0d0d0d;color:#fff;font-family:'Poppins',sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}
-.container{background:rgba(0,0,0,0.6);padding:50px;border:2px solid #0ff;border-radius:20px;text-align:center;}
-.container h1{font-family:'Orbitron',sans-serif;color:#0ff;margin-bottom:30px;}
-.container input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:1px solid #0ff;background:#111;color:#fff;}
-.container button{padding:15px 50px;margin-top:20px;border:2px solid #0ff;color:#0ff;border-radius:50px;cursor:pointer;transition:.3s;text-shadow:0 0 5px #0ff;}
-.container button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 30px #0ff;transform:scale(1.05);}
-a.back-btn{display:block;margin-top:20px;color:#0ff;text-decoration:none;}
-a.back-btn:hover{color:#fff;}
+body { margin:0; font-family:'Poppins',sans-serif; background: radial-gradient(circle at top, #000010,#020202); color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; }
+.container { background: rgba(0,0,0,0.6); padding:40px; border-radius:20px; border:2px solid #0ff; width:350px; text-align:center; }
+h1 { font-family:'Orbitron',sans-serif; color:#0ff; margin-bottom:30px; }
+input { width:100%; padding:10px; margin:10px 0; border-radius:10px; border:1px solid #0ff; background:transparent; color:#fff; }
+button { background:transparent; border:2px solid #0ff; color:#0ff; padding:10px 20px; border-radius:50px; cursor:pointer; margin-top:10px; transition:.3s; width:100%; }
+button:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
 </style>
 </head>
 <body>
 
 <div class="container">
-<h1>Aura RP Kayıt / Giriş</h1>
-<input type="text" id="username" placeholder="Kullanıcı Adı">
-<input type="password" id="password" placeholder="Şifre">
-<button id="registerBtn">Kayıt / Giriş</button>
-<a href="index.html" class="back-btn">Ana Sayfaya Dön</a>
+  <h1>Aura RP Kayıt / Giriş</h1>
+  <input type="text" id="username" placeholder="Kullanıcı Adı">
+  <button id="registerBtn">Kayıt Ol</button>
+  <button id="loginBtn">Giriş Yap</button>
 </div>
 
 <script>
-const btn = document.getElementById('registerBtn');
-btn.addEventListener('click', () => {
-  const username = document.getElementById('username').value;
-  if(username){ 
-    localStorage.setItem('auraRP_user', username);
-    alert('Kayıt/Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz.');
-    window.location.href = 'index.html';
-  }else{
-    alert('Lütfen kullanıcı adı girin!');
-  }
+const usernameInput = document.getElementById("username");
+const registerBtn = document.getElementById("registerBtn");
+const loginBtn = document.getElementById("loginBtn");
+
+registerBtn.addEventListener("click",()=>{
+  const user = usernameInput.value.trim();
+  if(!user){ alert("Kullanıcı adı girin!"); return;}
+  localStorage.setItem("auraRP_user",user);
+  alert("Kayıt başarılı! Hoşgeldin "+user);
+  window.location.href="index.html";
+});
+
+loginBtn.addEventListener("click",()=>{
+  const user = usernameInput.value.trim();
+  if(!user){ alert("Kullanıcı adı girin!"); return;}
+  const storedUser = localStorage.getItem("auraRP_user");
+  if(storedUser===user){ alert("Giriş başarılı! Hoşgeldin "+user); window.location.href="index.html"; }
+  else{ alert("Böyle bir kullanıcı yok! Kayıt olmayı deneyin."); }
 });
 </script>
 
