@@ -6,160 +6,113 @@
 <title>Aura RP Ana Sayfa</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body {
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background: url('img/banner.jpg') center/cover no-repeat;
-  color:#fff;
+/* Genel Ayarlar */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins',sans-serif; color:#fff; overflow-x:hidden; background:#000; }
+
+/* Header */
+header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
+header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; animation: neonPulse 2s infinite; }
+nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
+nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
+
+/* Kullanıcı durumu */
+.user-bar { text-align:right; padding:10px 50px; margin-top:70px; font-weight:500; color:#0ff; }
+
+/* Hero bölüm */
+.hero { position:relative; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
+.hero video { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.4); }
+.hero h2 { font-family:'Orbitron',sans-serif; font-size:60px; color:#0ff; text-shadow:0 0 25px #0ff; z-index:1; margin-bottom:20px; animation: neonPulse 2s infinite; }
+.hero p { font-size:22px; color:#ccc; z-index:1; margin-bottom:40px; max-width:800px; }
+.btn { position:relative; background:transparent; border:2px solid #0ff; color:#0ff; padding:15px 35px; border-radius:50px; font-weight:600; font-size:16px; margin:10px; text-decoration:none; z-index:1; transition:.3s; display:inline-block; }
+.btn:hover { background:#0ff; color:#000; box-shadow:0 0 25px #0ff; transform:scale(1.05); }
+
+/* Bölümler */
+.section { padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; background:rgba(0,0,0,0.6); border-radius:20px; border:2px solid #0ff; margin-bottom:50px; }
+.section h3 { font-family:'Orbitron',sans-serif; font-size:36px; color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:20px; animation: neonPulse 2s infinite; }
+.section p { color:#ccc; font-size:18px; line-height:1.6; max-width:900px; margin:0 auto; }
+
+/* Slider */
+.slider { display:flex; gap:20px; overflow-x:auto; padding:20px 0; scroll-behavior:smooth; }
+.slide { min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; text-align:left; transition:.3s; flex-shrink:0; }
+.slide:hover { transform:scale(1.05); box-shadow:0 0 20px #0ff; animation: neonGlow 1.5s infinite; }
+.slide h4 { color:#0ff; font-size:20px; margin-bottom:10px; }
+.slide p { color:#ccc; font-size:14px; }
+
+/* Footer */
+footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-top:2px solid #0ff; color:#ccc; font-size:14px; }
+footer a { color:#0ff; text-decoration:none; }
+footer a:hover { text-shadow:0 0 10px #0ff; }
+
+/* Neon Animations */
+@keyframes neonPulse {
+  0%,100%{ text-shadow:0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+  50%{ text-shadow:0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff; }
 }
-header {
-  background: rgba(0,0,0,0.8);
-  padding:15px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:2px solid #0ff;
-  position:sticky;
-  top:0;
-  z-index:100;
+@keyframes neonGlow {
+  0%,100%{ box-shadow:0 0 10px #0ff; }
+  50%{ box-shadow:0 0 20px #0ff; }
 }
-header h1 {
-  font-family:'Orbitron',sans-serif;
-  font-size:30px;
-  color:#0ff;
-  text-shadow:0 0 15px #0ff;
-}
-nav a {
-  color:#fff;
-  text-decoration:none;
-  margin:0 15px;
-  font-weight:500;
-  transition:.3s;
-}
-nav a:hover {
-  color:#0ff;
-  text-shadow:0 0 10px #0ff;
-}
-.user-bar {
-  text-align:right;
-  padding:10px 30px;
-  background: rgba(0,0,0,0.6);
-  border-bottom:1px solid #00ffff33;
-  font-weight:500;
-}
-.user-bar span { color:#0ff; }
-.container {
-  max-width:1200px;
-  margin:30px auto;
-  padding:0 20px;
-}
-.hero {
-  text-align:center;
-  margin-top:100px;
-}
-.hero h2 {
-  font-family:'Orbitron',sans-serif;
-  font-size:48px;
-  color:#0ff;
-  text-shadow:0 0 20px #0ff;
-  margin-bottom:20px;
-}
-.hero p {
-  font-size:20px;
-  margin-bottom:30px;
-  color:#ccc;
-}
-.btn {
-  background:transparent;
-  border:2px solid #0ff;
-  color:#0ff;
-  padding:15px 35px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:16px;
-  margin:10px;
-  transition:.3s;
-  display:inline-block;
-}
-.btn:hover {
-  background:#0ff;
-  color:#000;
-  box-shadow:0 0 20px #0ff;
-}
-.section {
-  background: rgba(0,0,0,0.7);
-  margin:50px 0;
-  padding:40px 20px;
-  border-radius:20px;
-  border:2px solid #0ff;
-}
-.section h3 {
-  font-family:'Orbitron',sans-serif;
-  font-size:28px;
-  color:#0ff;
-  margin-bottom:20px;
-  border-left:5px solid #0ff;
-  padding-left:10px;
-}
-.section p {
-  color:#ccc;
-  font-size:16px;
-  line-height:1.5;
-}
-footer {
-  text-align:center;
-  padding:30px;
-  background: rgba(0,0,0,0.8);
-  border-top:2px solid #0ff;
-  color:#ccc;
-  font-size:14px;
-}
-footer a {
-  color:#0ff;
-  text-decoration:none;
-}
-footer a:hover { text-shadow:0 0 10px #0ff;}
+
+::-webkit-scrollbar { height:8px; }
+::-webkit-scrollbar-thumb { background:#0ff; border-radius:4px; }
+::-webkit-scrollbar-track { background:#000; }
+
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Aura RP</h1>
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="forum.html">Forum</a>
-    <a href="market.html">Market</a>
-    <a href="sepet.html">🛒 Sepet</a>
-  </nav>
+<h1>Aura RP</h1>
+<nav>
+  <a href="index.html">Ana Sayfa</a>
+  <a href="forum.html">Forum</a>
+  <a href="market.html">Market</a>
+  <a href="sepet.html">🛒 Sepet</a>
+</nav>
 </header>
 
 <div class="user-bar" id="userStatus"></div>
 
-<div class="container hero">
+<section class="hero">
+  <!-- Video arkaplan -->
+  <video src="img/los_santos.mp4" autoplay muted loop></video>
   <h2>Aura Roleplay Sunucusuna Hoşgeldiniz!</h2>
-  <p>GTA SA & MTA RP deneyimini en janti şekilde yaşayın. VIP paketlerle avantajlarınızı katlayın.</p>
+  <p>GTA SA & MTA RP deneyimini neon ve janti tarzıyla yaşayın. VIP paketler ve etkinliklerle RP keyfinizi katlayın.</p>
   <a href="kayit.html" class="btn">Kayıt Ol / Giriş Yap</a>
   <a href="market.html" class="btn">Market</a>
-</div>
+</section>
 
-<div class="container section">
-  <h3>Sunucu Hakkında</h3>
-  <p>Aura RP, Los Santos haritasında eşsiz RP deneyimi sunan, etkinlikleri ve özel sistemleri ile oyuncularına kaliteli bir Roleplay ortamı sağlayan bir sunucudur. Sunucuda adil oyun ve eğlence ön plandadır.</p>
-</div>
+<section class="section">
+<h3>Sunucu Hakkında</h3>
+<p>Aura RP, Los Santos haritasında adil ve eğlenceli RP deneyimi sunan bir sunucudur. Görevler, etkinlikler ve VIP avantajlarıyla oyunculara keyifli bir ortam sağlar.</p>
+</section>
 
-<div class="container section">
-  <h3>VIP Paketler</h3>
-  <p>VIP paketler ile özel tag, araç, ev ve skin haklarına sahip olun. Bronz, Altın ve Elmas paketler ile RP deneyiminizi geliştirin.</p>
+<section class="section">
+<h3>Öne Çıkan Paketler</h3>
+<div class="slider">
+  <div class="slide">
+    <h4>Bronz VIP</h4>
+    <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p>
+  </div>
+  <div class="slide">
+    <h4>Altın VIP</h4>
+    <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p>
+  </div>
+  <div class="slide">
+    <h4>Elmas VIP</h4>
+    <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p>
+  </div>
 </div>
+</section>
 
-<div class="container section">
-  <h3>Etkinlikler</h3>
-  <p>Haftalık yarışmalar, görevler ve ödüller ile RP deneyiminizi sürekli canlı tutuyoruz. Discord topluluğumuza katılarak tüm etkinliklerden haberdar olabilirsiniz.</p>
-</div>
+<section class="section">
+<h3>Etkinlikler</h3>
+<p>Haftalık yarışmalar, görevler ve ödüller ile RP deneyiminizi sürekli canlı tutuyoruz. Discord topluluğumuza katılarak tüm etkinliklerden haberdar olabilirsiniz.</p>
+</section>
 
 <footer>
-  <p>© 2025 Aura Roleplay | <a href="https://discord.gg/quWAxqxK4T">Discord'a Katıl</a></p>
+<p>© 2025 Aura Roleplay | <a href="https://discord.gg/quWAxqxK4T">Discord'a Katıl</a></p>
 </footer>
 
 <script>
