@@ -1,196 +1,153 @@
-:root {
-  --bg: #0e0e12;
-  --text: #eaeaea;
-  --text-light: #b5b5b5;
-  --accent: #a855f7;
-  --radius: 12px;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: radial-gradient(circle at top, #1a1a25 0%, #0e0e12 80%);
-  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  background: url('arka-plan.jpg') no-repeat center center/cover;
+  color: #fff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Navbar */
-.nav {
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  padding: 15px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
-.brand {
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--accent);
+header h1 {
+  font-size: 1.8rem;
+  color: #00aaff;
 }
 
-.nav-links a {
-  color: var(--text);
-  margin: 0 12px;
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
   text-decoration: none;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
+nav a:hover,
+nav a.active {
+  color: #00aaff;
 }
 
 /* Hero */
 .hero {
   text-align: center;
-  padding: 120px 20px;
-  background: linear-gradient(180deg, rgba(168, 85, 247, 0.1), transparent);
+  padding: 100px 20px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  margin: 60px auto;
+  max-width: 900px;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
+.hero h2 {
+  font-size: 2.5rem;
   margin-bottom: 15px;
+  color: #00aaff;
 }
 
-.hero-content p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  margin-bottom: 30px;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
 }
 
 .btn-primary {
   display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 12px 24px;
-  border-radius: var(--radius);
+  padding: 12px 28px;
+  background: #00aaff;
+  color: #fff;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .btn-primary:hover {
-  background: #9333ea;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  background: #0088cc;
 }
 
-/* Formlar */
-.form-glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+/* Form sections */
+.form-section {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 40px;
-  max-width: 600px;
-  margin: 30px auto;
-  transition: 0.3s ease;
+  margin: 60px auto;
+  max-width: 800px;
+  text-align: center;
 }
 
-.animated-form .field {
-  position: relative;
+.form-section h2 {
+  color: #00aaff;
+  margin-bottom: 10px;
+}
+
+.form-section p {
   margin-bottom: 25px;
+  color: #ddd;
 }
 
-.animated-form input,
-.animated-form textarea,
-.animated-form select {
-  width: 100%;
-  padding: 14px 16px;
-  background: rgba(20, 20, 25, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius);
-  color: var(--text);
-  font-size: 15px;
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
   outline: none;
-  transition: 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  resize: none;
+  font-size: 1rem;
 }
 
-.animated-form input:focus,
-.animated-form textarea:focus,
-.animated-form select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
-}
-
-.animated-form label {
-  position: absolute;
-  left: 16px;
-  top: 13px;
-  color: var(--text-light);
-  font-size: 14px;
-  pointer-events: none;
-  transition: 0.25s ease;
-}
-
-.animated-form input:focus + label,
-.animated-form textarea:focus + label,
-.animated-form input:not(:placeholder-shown) + label,
-.animated-form textarea:not(:placeholder-shown) + label {
-  top: -8px;
-  left: 10px;
-  background: var(--bg);
-  padding: 0 6px;
-  font-size: 12px;
-  color: var(--accent);
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
 }
 
 /* Discord */
 .discord-section {
   text-align: center;
-  margin: 60px auto;
-  padding: 40px;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  margin: 80px 0;
 }
 
 .discord-section h2 {
-  color: var(--accent);
+  color: #00aaff;
   margin-bottom: 10px;
-}
-
-.discord-section p {
-  color: var(--text-light);
-  margin-bottom: 25px;
 }
 
 .discord-widget {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 /* Footer */
 footer {
-  margin-top: auto;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  color: #aaa;
   font-size: 0.9rem;
-  color: var(--text-light);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-/* Mobil */
-@media (max-width: 700px) {
-  .form-glass {
-    padding: 25px;
-  }
-
-  .discord-widget iframe {
-    width: 100%;
-    height: 400px;
-  }
 }
