@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hikayeni Yaz | AuraRP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hikayeni Yaz — AuraRP</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="nav">
@@ -20,66 +19,51 @@
     </div>
   </nav>
 
-  <section class="page">
-    <h1>📝 Kendi Hikayeni Yaz</h1>
-    <p>Karakterinin geçmişini, kişiliğini ve hikayesini bizimle paylaş.</p>
+  <main class="page">
+    <h1>Hikayeni Yaz</h1>
+    <p>Karakterinin geçmişini paylaş. (Gönderimler Discord webhook ile düşecekse webhook URL'sini ekle.)</p>
 
-    <div class="form-glass animated-form">
-      <form id="hikayeForm" class="form">
+    <div class="form-glass">
+      <form id="storyForm" class="animated-form">
         <div class="field">
-          <input type="text" id="karakter" placeholder=" " required />
-          <label>Karakter Adı</label>
+          <input id="karakter" type="text" placeholder=" " required>
+          <label for="karakter">Karakter Adı</label>
         </div>
-
         <div class="field">
           <textarea id="hikaye" placeholder=" " rows="8" required></textarea>
-          <label>Hikayeni buraya yaz...</label>
+          <label for="hikaye">Hikayen</label>
         </div>
-
         <button type="submit" class="btn-primary">Hikayeyi Gönder</button>
       </form>
-      <p id="hikayeSonuc" style="margin-top:15px;"></p>
+      <p id="storyResult" style="margin-top:12px;color:var(--muted)"></p>
     </div>
-  </section>
+  </main>
 
-  <footer>© 2025 AuraRP. Tüm hakları saklıdır.</footer>
+  <footer>© 2025 AuraRP</footer>
 
-  <script>
-    const hikayeForm = document.getElementById("hikayeForm");
-    const hikayeSonuc = document.getElementById("hikayeSonuc");
+<script>
+  // Webhook gönderimi istersen webhookURL değişkenine yapıştır.
+  const storyForm = document.getElementById('storyForm');
+  const storyResult = document.getElementById('storyResult');
+  const storyWebhookURL = ''; // <-- buraya webhook koy (ör: https://discord.com/api/webhooks/...)
 
-    hikayeForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const karakter = document.getElementById("karakter").value;
-      const hikaye = document.getElementById("hikaye").value;
-
-      const webhookURL = "WEBHOOK_URL"; // 🔹 Buraya hikaye kanalının webhook'unu gir
-
-      const payload = {
-        content: `📖 **Yeni Hikaye Paylaşıldı!**\n**Karakter:** ${karakter}\n\n${hikaye}`
-      };
-
-      try {
-        const response = await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-          hikayeSonuc.textContent = "✅ Hikayen başarıyla gönderildi!";
-          hikayeSonuc.style.color = "#4ade80";
-          hikayeForm.reset();
-        } else {
-          hikayeSonuc.textContent = "⚠️ Bir hata oluştu. Tekrar dene.";
-          hikayeSonuc.style.color = "#f87171";
-        }
-      } catch (error) {
-        hikayeSonuc.textContent = "🚫 Bağlantı kurulamadı.";
-        hikayeSonuc.style.color = "#f87171";
-      }
-    });
-  </script>
+  storyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const karakter = document.getElementById('karakter').value.trim();
+    const hikaye = document.getElementById('hikaye').value.trim();
+    if(!storyWebhookURL){
+      storyResult.textContent = '⚠️ Gönderim etkin değil. Webhook URL ayarlanmamış.';
+      return;
+    }
+    const payload = { content: `📖 Yeni Hikaye\n**Karakter:** ${karakter}\n\n${hikaye}` };
+    try {
+      const res = await fetch(storyWebhookURL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+      });
+      if(res.ok){ storyResult.textContent = '✅ Hikayen gönderildi!'; storyForm.reset(); }
+      else { storyResult.textContent = '⚠️ Gönderilirken hata oldu.'; }
+    } catch (err) { storyResult.textContent = '🚫 Bağlantı hatası.'; }
+  });
+</script>
 </body>
 </html>
