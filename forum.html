@@ -7,55 +7,93 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;padding:0;font-family:'Poppins',sans-serif;background:#0d0d0d;color:#fff;}
-header{background:rgba(0,0,0,0.8);padding:20px;text-align:center;}
-header h1{font-family:'Orbitron',sans-serif;color:#0ff;font-size:36px;text-shadow:0 0 10px #0ff;}
-.forum-container{max-width:1200px;margin:50px auto;padding:0 20px;}
-.forum-section{margin-bottom:50px;}
-.forum-section h2{font-family:'Orbitron',sans-serif;color:#0ff;text-shadow:0 0 10px #0ff;margin-bottom:20px;}
-.forum-post{background:rgba(0,0,0,0.4);border:2px solid #0ff;border-radius:15px;padding:20px;margin-bottom:20px;transition:.3s;}
-.forum-post:hover{box-shadow:0 0 25px #0ff;transform:scale(1.02);}
-.forum-post h3{color:#0ff;margin-bottom:10px;}
-.forum-post p{color:#ccc;}
-a.back-btn{display:inline-block;margin-top:30px;padding:15px 50px;border:2px solid #0ff;color:#0ff;border-radius:50px;text-decoration:none;transition:.3s;text-shadow:0 0 5px #0ff;}
-a.back-btn:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 30px #0ff;transform:scale(1.05);}
+header{background:#111;padding:20px;display:flex;justify-content:space-between;align-items:center;}
+header h1{font-family:'Orbitron',sans-serif;color:#0ff;font-size:28px;text-shadow:0 0 10px #0ff;}
+header nav a{color:#fff;margin-left:20px;transition:.3s;text-decoration:none;}
+header nav a:hover{color:#0ff;}
+
+.container{display:flex;max-width:1400px;margin:20px auto;padding:0 20px;gap:20px;}
+.sidebar{flex:1;background:rgba(0,0,0,0.6);border:2px solid #0ff;border-radius:15px;padding:20px;height:max-content;}
+.sidebar h3{color:#0ff;margin-bottom:15px;text-shadow:0 0 5px #0ff;}
+.sidebar a{display:block;color:#ccc;margin:8px 0;transition:.3s;text-decoration:none;}
+.sidebar a:hover{color:#0ff;}
+
+.main{flex:3;}
+.section{background:rgba(0,0,0,0.4);border:2px solid #0ff;border-radius:15px;padding:20px;margin-bottom:20px;transition:.3s;}
+.section:hover{box-shadow:0 0 25px #0ff;transform:scale(1.02);}
+.section h2{color:#0ff;margin-bottom:10px;}
+.section p{color:#ccc;margin-bottom:5px;}
+.section .meta{font-size:14px;color:#0aa;margin-bottom:10px;}
+.button{padding:10px 30px;border:2px solid #0ff;color:#0ff;border-radius:50px;text-decoration:none;transition:.3s;display:inline-block;margin-top:10px;}
+.button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 25px #0ff;transform:scale(1.05);}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.topbar .user-status a{color:#0ff;margin-left:15px;transition:.3s;}
+.topbar .user-status a:hover{color:#0fff;}
+
+/* Responsive */
+@media(max-width:1024px){
+.container{flex-direction:column;}
+.sidebar{width:100%;}
+.main{width:100%;}
+}
 </style>
 </head>
 <body>
 
 <header>
 <h1>Aura RP Forum</h1>
+<nav>
+<a href="index.html">AnaSayfa</a>
+<a href="market.html">Market</a>
+<a href="forum.html">Forum</a>
+</nav>
 </header>
 
-<div class="forum-container">
-  <div class="forum-section">
-    <h2>Duyurular</h2>
-    <div class="forum-post">
-      <h3>Sunucu Açılışı</h3>
-      <p>Sunucumuz 10 Kasım tarihinde açılıyor! Hazır olun!</p>
-    </div>
-    <div class="forum-post">
-      <h3>Yeni Paketler</h3>
-      <p>VIP araç ve kıyafet paketleri artık markette!</p>
-    </div>
-  </div>
+<div class="container">
 
-  <div class="forum-section">
-    <h2>Genel Sohbet</h2>
-    <div class="forum-post">
-      <h3>Merhaba Herkes!</h3>
-      <p>Yeni gelen oyuncular kendilerini tanıtabilir.</p>
-    </div>
-  </div>
+<div class="sidebar">
+<h3>Menü</h3>
+<a href="#">Forums</a>
+<a href="#">Blog Yazıları</a>
+<a href="#">Staff</a>
+<a href="#">Çevrimiçi kullanıcılar</a>
+<a href="#">Leaderboard</a>
+<a href="#">Tüm aktivite</a>
+<a href="#">Search</a>
+<a href="#">Featured Content</a>
+</div>
 
-  <div class="forum-section">
-    <h2>Destek</h2>
-    <div class="forum-post">
-      <h3>Bağlantı Sorunu</h3>
-      <p>MTA bağlantısı kurulamıyor, yardım lütfen!</p>
-    </div>
-  </div>
+<div class="main">
+<div class="topbar">
+<div class="new-topic"><a href="#" class="button">Yeni Konu Aç</a></div>
+<div class="user-status">
+<span>Zaten üye misin?</span> <a href="kayit.html">Giriş Yap</a> / <a href="kayit.html">Kayıt Ol</a>
+</div>
+</div>
 
-  <a href="index.html" class="back-btn">Ana Sayfaya Dön</a>
+<!-- Duyurular -->
+<div class="section">
+<h2>Duyurular</h2>
+<p class="meta">Yazan: NYYX, 11 Ekim</p>
+<p>03.10.2025 - 10.10.2025 Rehber Başvuruları Sonuçlandı !!</p>
+</div>
+
+<!-- Sunucu Politikaları -->
+<div class="section">
+<h2>Sunucu Politikaları</h2>
+<p class="meta">Yazan: Hasan_kara, 2 saat önce</p>
+<p>dupont dikimimde bir sorun oluştu</p>
+</div>
+
+<!-- Genel Sohbet -->
+<div class="section">
+<h2>Genel</h2>
+<p class="meta">Yazan: KullanıcıX, 1 saat önce</p>
+<p>Merhaba! Yeni oyuncular kendilerini tanıtabilir.</p>
+</div>
+
+</div>
 </div>
 
 </body>
