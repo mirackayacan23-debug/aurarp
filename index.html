@@ -6,100 +6,104 @@
 <title>Aura RP</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  /* Genel Stil */
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-  body { background: #0d0d0d; color: #fff; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
+/* Genel stil */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0d0d0d;color:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
 
-  /* Menü */
-  header { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.7); display: flex; justify-content: space-between; padding: 20px 50px; z-index: 1000; }
-  header .logo { font-family: 'Orbitron', sans-serif; font-size: 28px; color: #0ff; letter-spacing: 2px; }
-  header nav a { margin-left: 30px; color: #fff; transition: 0.3s; }
-  header nav a:hover { color: #0ff; }
+/* Menü */
+header{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:space-between;padding:20px 50px;z-index:1000;}
+header .logo{font-family:'Orbitron',sans-serif;font-size:28px;color:#0ff;letter-spacing:2px;}
+header nav a{margin-left:30px;color:#fff;transition:.3s;}
+header nav a:hover{color:#0ff;}
 
-  /* Hero Bölümü */
-  .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: url('https://i.imgur.com/3J0zR5f.jpg') center/cover no-repeat; position: relative; }
-  .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
-  .hero-content { position: relative; z-index: 2; color: #0ff; }
-  .hero-content h1 { font-family: 'Orbitron', sans-serif; font-size: 64px; margin-bottom: 20px; }
-  .hero-content p { font-size: 20px; margin-bottom: 30px; }
-  .hero-content a { padding: 15px 40px; border: 2px solid #0ff; color: #0ff; font-weight: 600; border-radius: 50px; transition: 0.3s; }
-  .hero-content a:hover { background: #0ff; color: #0d0d0d; }
+/* Hero */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;}
+.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1;}
+.hero-content{position:relative;z-index:2;color:#0ff;}
+.hero-content h1{font-family:'Orbitron',sans-serif;font-size:64px;margin-bottom:20px;}
+.hero-content p{font-size:20px;margin-bottom:30px;}
+.hero-content a{padding:15px 40px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;}
+.hero-content a:hover{background:#0ff;color:#0d0d0d;}
 
-  /* Bölümler */
-  section { padding: 100px 50px; }
-  section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; color: #0ff; margin-bottom: 40px; text-align: center; }
-  .about, .download, .rules { max-width: 1000px; margin: 0 auto; text-align: center; }
-  .about p, .rules p { font-size: 18px; line-height: 1.6; margin-bottom: 20px; }
+/* Bölümler */
+section{padding:100px 50px;}
+section h2{font-family:'Orbitron',sans-serif;font-size:36px;color:#0ff;margin-bottom:40px;text-align:center;}
+.about,.download,.rules{max-width:1000px;margin:0 auto;text-align:center;}
+.about p,.rules p{font-size:18px;line-height:1.6;margin-bottom:20px;}
 
-  /* Galeri */
-  .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .gallery img { width: 300px; height: 200px; object-fit: cover; border-radius: 15px; transition: 0.3s; }
-  .gallery img:hover { transform: scale(1.05); }
+/* Galeri */
+.gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.gallery img{width:300px;height:200px;object-fit:cover;border-radius:15px;transition:.3s;cursor:pointer;}
+.gallery img:hover{transform:scale(1.05);}
 
-  /* Footer */
-  footer { background: #111; text-align: center; padding: 30px; color: #888; }
-  footer a { color: #0ff; margin: 0 10px; transition: 0.3s; }
-  footer a:hover { color: #fff; }
+/* Footer */
+footer{background:#111;text-align:center;padding:30px;color:#888;}
+footer a{color:#0ff;margin:0 10px;transition:.3s;}
+footer a:hover{color:#fff;}
 
-  /* Responsive */
-  @media(max-width:768px){
-    header { flex-direction: column; padding: 15px 20px; }
-    header nav a { margin: 10px 0; }
-    .hero-content h1 { font-size: 48px; }
-    .hero-content p { font-size: 16px; }
-    .gallery img { width: 100%; height: auto; }
-  }
+/* Responsive */
+@media(max-width:768px){
+header{flex-direction:column;padding:15px 20px;}
+header nav a{margin:10px 0;}
+.hero-content h1{font-size:48px;}
+.hero-content p{font-size:16px;}
+.gallery img{width:100%;height:auto;}
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">AURA RP</div>
-  <nav>
-    <a href="#about">Hakkında</a>
-    <a href="#download">Başla</a>
-    <a href="#gallery">Galeri</a>
-    <a href="#rules">Kurallar</a>
-  </nav>
+<div class="logo">AURA RP</div>
+<nav>
+<a href="#about">Hakkında</a>
+<a href="#download">Başla</a>
+<a href="#gallery">Galeri</a>
+<a href="#rules">Kurallar</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Aura RP</h1>
-    <p>Los Santos'ta Roleplay deneyimini yaşa!</p>
-    <a href="#download">Hemen Katıl</a>
-  </div>
+<video autoplay muted loop>
+<source src="https://cdn.pixabay.com/vimeo/424330817/City_Night.mp4" type="video/mp4">
+</video>
+<div class="hero-content">
+<h1>Aura RP</h1>
+<p>Los Santos'ta Roleplay deneyimini yaşa!</p>
+<a href="#download">Hemen Katıl</a>
+</div>
 </section>
 
 <section id="about" class="about">
-  <h2>Hakkında</h2>
-  <p>Aura RP, Los Santos'un dinamik dünyasında karakterinizi yaratabileceğiniz, özgür RP deneyimi sunan bir sunucudur.</p>
-  <p>Karakterinizi geliştirin, görevleri tamamlayın ve toplulukla etkileşime geçin.</p>
+<h2>Hakkında</h2>
+<p>Aura RP, Los Santos'un dinamik dünyasında karakterinizi yaratabileceğiniz, özgür RP deneyimi sunan bir sunucudur.</p>
+<p>Karakterinizi geliştirin, görevleri tamamlayın ve toplulukla etkileşime geçin.</p>
 </section>
 
 <section id="download" class="download">
-  <h2>Başla</h2>
-  <p>Oyuna başlamak için paketi indirip kayıt olun. Kurulum basit ve hızlıdır.</p>
-  <a href="#">Paketi İndir</a>
+<h2>Başla</h2>
+<p>Oyuna başlamak için paketi indirip kayıt olun. Kurulum basit ve hızlıdır.</p>
+<a href="#">Paketi İndir</a>
 </section>
 
 <section id="gallery" class="gallery">
-  <h2>Galeri</h2>
-  <img src="https://i.imgur.com/3J0zR5f.jpg" alt="Screenshot 1">
-  <img src="https://i.imgur.com/2fXnS9q.jpg" alt="Screenshot 2">
-  <img src="https://i.imgur.com/xD9qzHq.jpg" alt="Screenshot 3">
+<h2>Galeri</h2>
+<img src="https://i.imgur.com/3J0zR5f.jpg" alt="Screenshot 1">
+<img src="https://i.imgur.com/2fXnS9q.jpg" alt="Screenshot 2">
+<img src="https://i.imgur.com/xD9qzHq.jpg" alt="Screenshot 3">
 </section>
 
 <section id="rules" class="rules">
-  <h2>Kurallar</h2>
-  <p>1. Karakterinizi doğru şekilde oynayın.</p>
-  <p>2. Diğer oyunculara saygılı olun.</p>
-  <p>3. Hile ve kötü amaçlı davranış yasaktır.</p>
+<h2>Kurallar</h2>
+<p>1. Karakterinizi doğru şekilde oynayın.</p>
+<p>2. Diğer oyunculara saygılı olun.</p>
+<p>3. Hile ve kötü amaçlı davranış yasaktır.</p>
 </section>
 
 <footer>
-  <p>© 2025 Aura RP | <a href="#">Discord</a> | <a href="#">Instagram</a></p>
+<p>© 2025 Aura RP | <a href="#">Discord</a> | <a href="#">Instagram</a></p>
 </footer>
 
 </body>
