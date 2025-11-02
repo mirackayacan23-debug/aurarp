@@ -1,173 +1,66 @@
-:root {
-  --bg: #0e0e12;
-  --text: #f2f2f2;
-  --text-light: #cfcfcf;
-  --accent: #7c3aed;
-  --radius: 12px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-/* ------------- NAV ------------- */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 60px;
-  background: rgba(20, 20, 25, 0.8);
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.brand {
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--accent);
-}
-
-.nav-links a {
-  margin: 0 15px;
-  color: var(--text);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
-
-/* ------------- HERO ------------- */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
-  background: radial-gradient(circle at center, rgba(124,58,237,0.1), transparent 70%);
-  text-align: center;
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-size: 46px;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.hero-content p {
-  margin: 15px auto 25px;
-  max-width: 600px;
-  font-size: 17px;
-  color: var(--text-light);
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: white;
-  padding: 12px 26px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: 0.3s ease;
-  font-weight: 600;
-}
-
-.btn-primary:hover {
-  background: #9f67ff;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
-}
-
-/* ------------- INFO SECT. ------------- */
-.info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  padding: 60px;
-  text-align: center;
-}
-
-.info-box {
+/* ---------- Modern form tasarımı ---------- */
+.form-glass {
   background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+  backdrop-filter: blur(12px);
   border-radius: var(--radius);
-  transition: 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-.info-box:hover {
-  transform: translateY(-6px);
   box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
-}
-
-.info-box h2 {
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* -------- Discord widget bölümü -------- */
-.discord-section {
-  text-align: center;
-  margin: 60px auto;
   padding: 40px;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.05);
+  max-width: 600px;
+  margin: 30px auto;
+  transition: 0.3s ease;
+}
+
+.animated-form .field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.animated-form input,
+.animated-form textarea,
+.animated-form select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(20, 20, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
 }
 
-.discord-section h2 {
-  color: var(--accent);
-  margin-bottom: 10px;
+.animated-form input:focus,
+.animated-form textarea:focus,
+.animated-form select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
 }
 
-.discord-section p {
+.animated-form label {
+  position: absolute;
+  left: 16px;
+  top: 13px;
   color: var(--text-light);
-  margin-bottom: 25px;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.25s ease;
 }
 
-.discord-widget {
-  display: flex;
-  justify-content: center;
+.animated-form input:focus + label,
+.animated-form textarea:focus + label,
+.animated-form input:not(:placeholder-shown) + label,
+.animated-form textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  background: var(--bg);
+  padding: 0 6px;
+  font-size: 12px;
+  color: var(--accent);
 }
 
-@media (max-width: 600px) {
-  .discord-section {
+/* Mobil uyumluluk */
+@media (max-width: 700px) {
+  .form-glass {
     padding: 25px;
   }
-
-  .discord-widget iframe {
-    width: 100%;
-    height: 400px;
-  }
-}
-
-/* ------------- FOOTER ------------- */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text-light);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
