@@ -22,21 +22,26 @@ header nav a:hover{color:#0ff;}
 .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1;}
 .hero-content{position:relative;z-index:2;color:#0ff;}
-.hero-content h1{font-family:'Orbitron',sans-serif;font-size:64px;margin-bottom:20px;}
+.hero-content h1{font-family:'Orbitron',sans-serif;font-size:64px;margin-bottom:20px;text-shadow:0 0 10px #0ff;}
 .hero-content p{font-size:20px;margin-bottom:30px;}
-.hero-content a{padding:15px 40px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;}
-.hero-content a:hover{background:#0ff;color:#0d0d0d;}
+.hero-content a{padding:15px 40px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;text-shadow:0 0 5px #0ff;}
+.hero-content a:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 20px #0ff;transform:scale(1.05);}
 
 /* Bölümler */
 section{padding:100px 50px;}
-section h2{font-family:'Orbitron',sans-serif;font-size:36px;color:#0ff;margin-bottom:40px;text-align:center;}
+section h2{font-family:'Orbitron',sans-serif;font-size:36px;color:#0ff;margin-bottom:40px;text-align:center;text-shadow:0 0 5px #0ff;}
 .about,.download,.rules{max-width:1000px;margin:0 auto;text-align:center;}
 .about p,.rules p{font-size:18px;line-height:1.6;margin-bottom:20px;}
+
+/* İndir Bölümü */
+.download-buttons{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px;}
+.download-buttons a{padding:15px 40px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;text-shadow:0 0 5px #0ff;}
+.download-buttons a:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 20px #0ff;transform:scale(1.05);}
 
 /* Galeri */
 .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
 .gallery img{width:300px;height:200px;object-fit:cover;border-radius:15px;transition:.3s;cursor:pointer;}
-.gallery img:hover{transform:scale(1.05);}
+.gallery img:hover{transform:scale(1.05);box-shadow:0 0 15px #0ff;}
 
 /* Footer */
 footer{background:#111;text-align:center;padding:30px;color:#888;}
@@ -49,6 +54,7 @@ header{flex-direction:column;padding:15px 20px;}
 header nav a{margin:10px 0;}
 .hero-content h1{font-size:48px;}
 .hero-content p{font-size:16px;}
+.download-buttons{flex-direction:column;}
 .gallery img{width:100%;height:auto;}
 }
 </style>
@@ -79,13 +85,16 @@ header nav a{margin:10px 0;}
 <section id="about" class="about">
 <h2>Hakkında</h2>
 <p>Aura RP, Los Santos'un dinamik dünyasında karakterinizi yaratabileceğiniz, özgür RP deneyimi sunan bir sunucudur.</p>
-<p>Karakterinizi geliştirin, görevleri tamamlayın ve toplulukla etkileşime geçin.</p>
+<p>Karakterinizi geliştirin, görevleri tamamlayın ve toplulukla etkileşime geçin. Şehrin sokaklarında kendi hikayenizi yazın!</p>
 </section>
 
 <section id="download" class="download">
 <h2>Başla</h2>
-<p>Oyuna başlamak için paketi indirip kayıt olun. Kurulum basit ve hızlıdır.</p>
-<a href="#">Paketi İndir</a>
+<p>Oyuna başlamak için aşağıdaki platformlardan uygun olanı seçip paketi indirin:</p>
+<div class="download-buttons">
+<a href="https://www.gta-sa.com/download" target="_blank">GTA: San Andreas</a>
+<a href="https://mtasa.com/download" target="_blank">MTA</a>
+</div>
 </section>
 
 <section id="gallery" class="gallery">
@@ -97,9 +106,11 @@ header nav a{margin:10px 0;}
 
 <section id="rules" class="rules">
 <h2>Kurallar</h2>
-<p>1. Karakterinizi doğru şekilde oynayın.</p>
-<p>2. Diğer oyunculara saygılı olun.</p>
-<p>3. Hile ve kötü amaçlı davranış yasaktır.</p>
+<p>1. Karakterinizi gerçek RP mantığıyla oynayın, güç dengesini bozmayın.</p>
+<p>2. Diğer oyunculara saygılı olun, hakaret veya trol yasaktır.</p>
+<p>3. Hile, exploit veya bug kullanmak yasaktır; tespit edilenler kalıcı olarak yasaklanır.</p>
+<p>4. Sunucu içerisinde reklam yapmak yasaktır.</p>
+<p>5. Roleplay sırasında karakterinize sadık kalın, öyküye katkı sağlayın.</p>
 </section>
 
 <footer>
