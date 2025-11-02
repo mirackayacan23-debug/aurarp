@@ -3,97 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AuraRP | Ana Sayfa</title>
+  <title>AuraRP | Gerçekçi Roleplay Deneyimi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>AuraRP</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Ana Sayfa</a></li>
-        <li><a href="kurallar.html">Kurallar</a></li>
-        <li><a href="karakterler.html">Karakterler</a></li>
-        <li><a href="istatistikler.html">İstatistikler</a></li>
-        <li><a href="etkinlikler.html">Etkinlikler</a></li>
-      </ul>
-    </nav>
+  <nav class="nav">
+    <div class="brand">AuraRP</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Ana Sayfa</a>
+      <a href="characters.html">Karakterler</a>
+      <a href="rules.html">Kurallar</a>
+      <a href="hikaye.html">Hikayeni Yaz</a>
+      <a href="basvuru.html">Ekip Başvurusu</a>
+      <a href="etkinlik.html">Etkinlikler</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Gerçekçi Roleplay Deneyimi</h1>
+      <p>Şehrin kurallarını sen yaz. Kendi hikayeni oluştur, dostlarını bul, suçla veya adaletle tanış.</p>
+      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary">Discord’a Katıl</a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>AuraRP Dünyasına Hoş Geldin</h2>
-      <p>Rol yapmaya başla, hikayeni oluştur ve topluluğumuza katıl!</p>
-      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary">🚀 Hemen Katıl</a>
-    </section>
+  <section class="info">
+    <div class="info-box">
+      <h2>🌆 Yaşayan Bir Şehir</h2>
+      <p>AuraRP, detaylı karakter gelişimi ve topluluk odaklı hikaye örgüsüyle özgün bir RP deneyimi sunar.</p>
+    </div>
 
-    <section class="form-section">
-      <h2>🧩 Ekip Başvurusu</h2>
-      <p>Ekibimize katılmak istiyorsan aşağıdaki formu doldur!</p>
-      <form id="ekipForm">
-        <input type="text" name="isim" placeholder="Adın ve Soyadın" required />
-        <input type="text" name="yas" placeholder="Yaşın" required />
-        <input type="text" name="rol" placeholder="Başvurmak istediğin rol" required />
-        <textarea name="neden" placeholder="Neden bu role uygun olduğunu anlat..." required></textarea>
-        <button type="submit" class="btn-primary">Gönder</button>
-      </form>
-    </section>
+    <div class="info-box">
+      <h2>👮 Fraksiyonlar</h2>
+      <p>Polis, EMS, Mafya, Mekanik ve çok daha fazlası. Her meslek kendi hikayesini yaratır.</p>
+    </div>
 
-    <section class="form-section">
-      <h2>📜 Hikayeni Yaz</h2>
-      <p>Karakterinin geçmişini bizimle paylaş!</p>
-      <form id="hikayeForm">
-        <input type="text" name="karakter" placeholder="Karakter İsmi" required />
-        <textarea name="hikaye" placeholder="Karakterinin hikayesini yaz..." required></textarea>
-        <button type="submit" class="btn-primary">Gönder</button>
-      </form>
-    </section>
+    <div class="info-box">
+      <h2>💼 Ekonomik Sistem</h2>
+      <p>Gerçekçi ekonomi, oyuncu odaklı ticaret ve özel iş sistemleri seni bekliyor.</p>
+    </div>
+  </section>
 
-    <section class="discord-section" id="discord">
-      <h2>💬 Discord Topluluğumuz</h2>
-      <p>Topluluğumuza katıl, ekibimizle tanış ve etkinliklerden haberdar ol!</p>
-      <div class="discord-widget">
-        <iframe
-          src="https://discord.com/widget?id=1429447982087929938&theme=dark"
-          width="350"
-          height="500"
-          allowtransparency="true"
-          frameborder="0"
-          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        ></iframe>
-      </div>
-    </section>
-  </main>
+  <section class="discord-section">
+    <h2>💬 Discord Topluluğumuz</h2>
+    <p>AuraRP ekibiyle tanış, karakter fikirlerini paylaş ve sunucu güncellemelerini takip et.</p>
+
+    <div class="discord-widget">
+      <iframe 
+        src="https://discord.com/widget?id=1302281263981977620&theme=dark" 
+        width="350" 
+        height="500" 
+        allowtransparency="true" 
+        frameborder="0" 
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 AuraRP | Tüm hakları saklıdır.</p>
+    <p>© 2025 AuraRP. Tüm hakları saklıdır.</p>
+    <p>Discord: <a href="https://discord.gg/quWAxqxK4T" target="_blank">discord.gg/quWAxqxK4T</a></p>
   </footer>
-
-  <script>
-    const ekipWebhook = "WEBHOOK_URLINI_BURAYA_YAZ"; // buraya kendi webhook'unu ekle
-    const hikayeWebhook = "WEBHOOK_URLINI_BURAYA_YAZ"; // buraya da hikaye webhook'unu ekle
-
-    document.getElementById("ekipForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(e.target);
-      const payload = {
-        content: `🧩 **Yeni Ekip Başvurusu**\n👤 İsim: ${data.get("isim")}\n🎂 Yaş: ${data.get("yas")}\n🎭 Rol: ${data.get("rol")}\n📝 Sebep: ${data.get("neden")}`
-      };
-      await fetch(ekipWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      alert("Başvurun gönderildi!");
-      e.target.reset();
-    });
-
-    document.getElementById("hikayeForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(e.target);
-      const payload = {
-        content: `📜 **Yeni Hikaye Gönderimi**\n👤 Karakter: ${data.get("karakter")}\n📖 Hikaye:\n${data.get("hikaye")}`
-      };
-      await fetch(hikayeWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      alert("Hikayen gönderildi!");
-      e.target.reset();
-    });
-  </script>
 </body>
 </html>
