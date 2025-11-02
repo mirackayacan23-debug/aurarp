@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura RP - Janti RP Tarzı</title>
+<title>Aura RP - Ana Sayfa</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; color:#fff; background:#000; overflow-x:hidden; }
+body { font-family:'Poppins',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
 
 /* Header */
 header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
@@ -85,7 +85,6 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
     <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
     <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
     <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
-    <!-- Slider sonsuz loop için kopyalar -->
     <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
     <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
     <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
@@ -105,16 +104,16 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 <script>
 const userStatus = document.getElementById('userStatus');
 const user = localStorage.getItem('auraRP_user');
-if(user){
+const loggedIn = localStorage.getItem('auraRP_loggedIn');
+if(loggedIn && user){
   userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
 }else{
   userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
 }
 
-// Sonsuz kayan slider
+// Slider sonsuz loop
 const slider = document.getElementById('vipSlider');
 let sliderPos = 0;
-const slideWidth = 300; // her slide toplam genişliği + gap
 setInterval(() => {
   sliderPos += 1;
   if(sliderPos > slider.scrollWidth / 2) sliderPos = 0;
