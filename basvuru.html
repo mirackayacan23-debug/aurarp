@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ekip Başvurusu | AuraRP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,13 +22,24 @@
 
   <section class="page">
     <h1>🧩 Ekip Başvurusu</h1>
-    <p>Yönetim ekibimize katılmak ister misin? Aşağıdaki formu doldur!</p>
-    <form class="form">
-      <input type="text" placeholder="Ad Soyad" required />
-      <input type="text" placeholder="Discord Kullanıcı Adı (ör. user#0001)" required />
-      <textarea placeholder="Neden ekibe katılmak istiyorsun?" rows="6" required></textarea>
-      <button type="submit" class="btn-primary">Başvuru Gönder</button>
-    </form>
+    <p>Yönetim veya rol ekibimize katılmak istiyorsan aşağıdaki formu dikkatlice doldur.</p>
+
+    <div class="form-glass">
+      <form class="form">
+        <input type="text" placeholder="Ad Soyad" required />
+        <input type="text" placeholder="Discord Kullanıcı Adı (ör. kullanici#0001)" required />
+        <select required>
+          <option value="" disabled selected>Başvurmak İstediğin Rol</option>
+          <option>Admin Ekibi</option>
+          <option>Destek Ekibi</option>
+          <option>EMS</option>
+          <option>LSPD</option>
+          <option>Mekanik</option>
+        </select>
+        <textarea placeholder="Neden bu ekibe katılmak istiyorsun?" rows="6" required></textarea>
+        <button type="submit" class="btn-primary">Başvuru Gönder</button>
+      </form>
+    </div>
   </section>
 
   <footer>© 2025 AuraRP. Tüm hakları saklıdır.</footer>
