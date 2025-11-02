@@ -3,39 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura RP Ana Sayfa</title>
+<title>Aura RP - Janti RP Tarzı</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-/* Genel Ayarlar */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; color:#fff; overflow-x:hidden; background:#000; }
+body { font-family:'Poppins',sans-serif; color:#fff; background:#000; overflow-x:hidden; }
 
 /* Header */
 header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
-header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; animation: neonPulse 2s infinite; }
+header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-shadow:0 0 15px #0ff; }
+nav { display:flex; align-items:center; }
 nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
 nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 
 /* Kullanıcı durumu */
 .user-bar { text-align:right; padding:10px 50px; margin-top:70px; font-weight:500; color:#0ff; }
 
-/* Hero bölüm */
+/* Hero */
 .hero { position:relative; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
-.hero video { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.4); }
-.hero h2 { font-family:'Orbitron',sans-serif; font-size:60px; color:#0ff; text-shadow:0 0 25px #0ff; z-index:1; margin-bottom:20px; animation: neonPulse 2s infinite; }
+.hero img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.4); }
+.hero h2 { font-family:'Orbitron',sans-serif; font-size:60px; color:#0ff; text-shadow:0 0 25px #0ff; z-index:1; margin-bottom:20px; }
 .hero p { font-size:22px; color:#ccc; z-index:1; margin-bottom:40px; max-width:800px; }
-.btn { position:relative; background:transparent; border:2px solid #0ff; color:#0ff; padding:15px 35px; border-radius:50px; font-weight:600; font-size:16px; margin:10px; text-decoration:none; z-index:1; transition:.3s; display:inline-block; }
-.btn:hover { background:#0ff; color:#000; box-shadow:0 0 25px #0ff; transform:scale(1.05); }
+.hero .btn { position:relative; background:transparent; border:2px solid #0ff; color:#0ff; padding:15px 35px; border-radius:50px; font-weight:600; font-size:16px; margin:10px; text-decoration:none; z-index:1; transition:.3s; display:inline-block; }
+.hero .btn:hover { background:#0ff; color:#000; box-shadow:0 0 25px #0ff; transform:scale(1.05); }
 
 /* Bölümler */
 .section { padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; background:rgba(0,0,0,0.6); border-radius:20px; border:2px solid #0ff; margin-bottom:50px; }
-.section h3 { font-family:'Orbitron',sans-serif; font-size:36px; color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:20px; animation: neonPulse 2s infinite; }
+.section h3 { font-family:'Orbitron',sans-serif; font-size:36px; color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:20px; }
 .section p { color:#ccc; font-size:18px; line-height:1.6; max-width:900px; margin:0 auto; }
 
 /* Slider */
-.slider { display:flex; gap:20px; overflow-x:auto; padding:20px 0; scroll-behavior:smooth; }
-.slide { min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; text-align:left; transition:.3s; flex-shrink:0; }
-.slide:hover { transform:scale(1.05); box-shadow:0 0 20px #0ff; animation: neonGlow 1.5s infinite; }
+.slider-container { position:relative; overflow:hidden; max-width:100%; }
+.slider { display:flex; gap:20px; transition: transform 0.5s linear; }
+.slide { min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; text-align:left; flex-shrink:0; transition:.3s; }
+.slide:hover { transform:scale(1.05); box-shadow:0 0 20px #0ff; }
 .slide h4 { color:#0ff; font-size:20px; margin-bottom:10px; }
 .slide p { color:#ccc; font-size:14px; }
 
@@ -44,20 +45,10 @@ footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-t
 footer a { color:#0ff; text-decoration:none; }
 footer a:hover { text-shadow:0 0 10px #0ff; }
 
-/* Neon Animations */
-@keyframes neonPulse {
-  0%,100%{ text-shadow:0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
-  50%{ text-shadow:0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff; }
-}
-@keyframes neonGlow {
-  0%,100%{ box-shadow:0 0 10px #0ff; }
-  50%{ box-shadow:0 0 20px #0ff; }
-}
-
+/* Scrollbar */
 ::-webkit-scrollbar { height:8px; }
 ::-webkit-scrollbar-thumb { background:#0ff; border-radius:4px; }
 ::-webkit-scrollbar-track { background:#000; }
-
 </style>
 </head>
 <body>
@@ -75,8 +66,7 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 <div class="user-bar" id="userStatus"></div>
 
 <section class="hero">
-  <!-- Video arkaplan -->
-  <video src="img/los_santos.mp4" autoplay muted loop></video>
+  <img src="img/banner.jpg" alt="Aura RP Banner">
   <h2>Aura Roleplay Sunucusuna Hoşgeldiniz!</h2>
   <p>GTA SA & MTA RP deneyimini neon ve janti tarzıyla yaşayın. VIP paketler ve etkinliklerle RP keyfinizi katlayın.</p>
   <a href="kayit.html" class="btn">Kayıt Ol / Giriş Yap</a>
@@ -90,18 +80,15 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 
 <section class="section">
 <h3>Öne Çıkan Paketler</h3>
-<div class="slider">
-  <div class="slide">
-    <h4>Bronz VIP</h4>
-    <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p>
-  </div>
-  <div class="slide">
-    <h4>Altın VIP</h4>
-    <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p>
-  </div>
-  <div class="slide">
-    <h4>Elmas VIP</h4>
-    <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p>
+<div class="slider-container">
+  <div class="slider" id="vipSlider">
+    <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
+    <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
+    <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
+    <!-- Slider sonsuz loop için kopyalar -->
+    <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
+    <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
+    <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
   </div>
 </div>
 </section>
@@ -123,6 +110,16 @@ if(user){
 }else{
   userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
 }
+
+// Sonsuz kayan slider
+const slider = document.getElementById('vipSlider');
+let sliderPos = 0;
+const slideWidth = 300; // her slide toplam genişliği + gap
+setInterval(() => {
+  sliderPos += 1;
+  if(sliderPos > slider.scrollWidth / 2) sliderPos = 0;
+  slider.style.transform = `translateX(-${sliderPos}px)`;
+}, 20);
 </script>
 
 </body>
