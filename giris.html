@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura RP Giriş</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body { font-family:'Poppins',sans-serif; background:#000; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; }
+.container { background:rgba(0,0,0,0.8); padding:50px; border-radius:20px; border:2px solid #0ff; width:350px; text-align:center; }
+.container h2 { font-family:'Orbitron',sans-serif; color:#0ff; margin-bottom:20px; }
+.container input { width:100%; padding:10px; margin:10px 0; border-radius:10px; border:2px solid #0ff; background:#000; color:#fff; }
+.container button { padding:10px 20px; border-radius:50px; border:2px solid #0ff; background:transparent; color:#0ff; cursor:pointer; margin-top:10px; width:100%; transition:.3s; }
+.container button:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
+.message { margin-top:15px; color:#0ff; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Giriş Yap</h2>
+  <input type="text" id="usernameEmail" placeholder="Kullanıcı Adı veya E-posta">
+  <input type="password" id="password" placeholder="Şifre">
+  <button onclick="login()">Giriş Yap</button>
+  <p class="message" id="msg"></p>
+</div>
+
+<script>
+function login(){
+  const input = document.getElementById('usernameEmail').value;
+  const pass = document.getElementById('password').value;
+  const savedUser = localStorage.getItem('auraRP_user');
+  if(input && pass){
+    if(input === savedUser){ // Demo için sadece kullanıcı adı kontrolü
+      document.getElementById('msg').textContent = "Giriş yapıldı! Hoşgeldiniz, " + savedUser;
+      localStorage.setItem('auraRP_loggedIn', 'true');
+    }else{
+      document.getElementById('msg').textContent = "Kullanıcı adı veya şifre yanlış!";
+    }
+  }else{
+    document.getElementById('msg').textContent = "Lütfen tüm alanları doldurun!";
+  }
+}
+</script>
+
+</body>
+</html>
