@@ -34,15 +34,19 @@ header nav a:hover{color:#0ff;}
     animation:glow 2s infinite alternate;
 }
 .hero-content p{font-size:22px;margin-bottom:30px;text-shadow:0 0 5px #0ff;}
-.hero-content a{padding:15px 50px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;text-shadow:0 0 5px #0ff;}
-.hero-content a:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 30px #0ff;transform:scale(1.05);}
+.hero-content a, .hero-content button{
+    padding:15px 50px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;text-shadow:0 0 5px #0ff;
+    cursor:pointer;
+    background:transparent;
+}
+.hero-content a:hover, .hero-content button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 30px #0ff;transform:scale(1.05);}
 
 /* Bölümler */
 section{padding:100px 50px;opacity:0;transform:translateY(50px);transition:1s ease;}
 section.visible{opacity:1;transform:translateY(0);}
 section h2{font-family:'Orbitron',sans-serif;font-size:38px;color:#0ff;margin-bottom:40px;text-align:center;text-shadow:0 0 5px #0ff;}
-.about,.download,.rules,.register{max-width:1000px;margin:0 auto;text-align:center;}
-.about p,.rules p,.register p{font-size:18px;line-height:1.6;margin-bottom:20px;}
+.about,.download,.rules{max-width:1000px;margin:0 auto;text-align:center;}
+.about p,.rules p{font-size:18px;line-height:1.6;margin-bottom:20px;}
 
 /* İndir Bölümü */
 .download-buttons{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px;}
@@ -52,16 +56,6 @@ section h2{font-family:'Orbitron',sans-serif;font-size:38px;color:#0ff;margin-bo
 /* Kurallar Bölümü */
 .rules .rule-card{background:rgba(0,0,0,0.4);border:2px solid #0ff;border-radius:15px;padding:20px;margin:20px auto;max-width:700px;transition:.3s;}
 .rules .rule-card:hover{box-shadow:0 0 25px #0ff;transform:scale(1.02);}
-
-/* Kayıt Ol Bölümü */
-.register{padding:100px 50px;text-align:center;}
-.register h2{font-family:'Orbitron',sans-serif;font-size:38px;color:#0ff;margin-bottom:30px;text-shadow:0 0 5px #0ff;}
-.register p{font-size:18px;margin-bottom:30px;}
-.register-form{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:400px;margin:0 auto;}
-.register-form input{width:100%;padding:15px;border:2px solid #0ff;border-radius:10px;background:rgba(0,0,0,0.3);color:#fff;font-size:16px;outline:none;transition:.3s;}
-.register-form input:focus{border-color:#0ff;box-shadow:0 0 15px #0ff;}
-.register-form button{padding:15px 50px;border:2px solid #0ff;color:#0ff;font-weight:600;border-radius:50px;transition:.3s;text-shadow:0 0 5px #0ff;cursor:pointer;}
-.register-form button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 25px #0ff;transform:scale(1.05);}
 
 /* Footer */
 footer{background:#111;text-align:center;padding:30px;color:#888;}
@@ -80,7 +74,6 @@ header nav a{margin:10px 0;}
 .hero-content p{font-size:18px;}
 .download-buttons{flex-direction:column;}
 .rules .rule-card{max-width:100%;}
-.register-form{width:90%;}
 }
 </style>
 </head>
@@ -91,7 +84,6 @@ header nav a{margin:10px 0;}
 <nav>
 <a href="#about">Hakkında</a>
 <a href="#download">Başla</a>
-<a href="#register">Kayıt Ol</a>
 <a href="#rules">Kurallar</a>
 </nav>
 </header>
@@ -104,6 +96,7 @@ header nav a{margin:10px 0;}
 <h1>Aura RP</h1>
 <p>Los Santos'ta Roleplay deneyimini yaşa!</p>
 <a href="https://discord.gg/quWAxqxK4T" target="_blank">Hemen Katıl</a>
+<button id="registerBtn">Kayıt Ol</button>
 </div>
 </section>
 
@@ -120,17 +113,6 @@ header nav a{margin:10px 0;}
 <a href="https://www.gta-sa.com/download" target="_blank">GTA: San Andreas</a>
 <a href="https://mtasa.com/download" target="_blank">MTA</a>
 </div>
-</section>
-
-<section id="register" class="register">
-<h2>Kayıt Ol</h2>
-<p>Hemen Aura RP dünyasına katılmak için formu doldurun:</p>
-<form class="register-form" onsubmit="alert('Kayıt başarıyla gönderildi!'); return false;">
-  <input type="text" placeholder="Kullanıcı Adı" required>
-  <input type="email" placeholder="E-posta" required>
-  <input type="password" placeholder="Şifre" required>
-  <button type="submit">Kayıt Ol</button>
-</form>
 </section>
 
 <section id="rules" class="rules">
@@ -157,6 +139,15 @@ window.addEventListener('scroll', () => {
       sec.classList.add('visible');
     }
   });
+});
+
+// Kayıt/Giriş butonu kontrolü
+const registerBtn = document.getElementById('registerBtn');
+if(localStorage.getItem('auraRP_user')){
+    registerBtn.textContent = 'Giriş Yap';
+}
+registerBtn.addEventListener('click', () => {
+    window.location.href = 'kayit.html'; // burası kayıt sayfan olacak
 });
 </script>
 
