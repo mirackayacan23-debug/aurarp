@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aura RP - Sepet</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--neon:#00f0ff;--bg:#0d0d0d}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Poppins',sans-serif;background:radial-gradient(circle at top,#000010,#020202);color:#fff}
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,0.85);border-bottom:2px solid #00ffff33}
+  .logo{font-family:'Orbitron',sans-serif;color:var(--neon)}
+  .container{max-width:1000px;margin:30px auto;padding:0 18px}
+  h2{font-family:'Orbitron',sans-serif;color:var(--neon);margin-bottom:12px}
+  .cart-list{display:flex;flex-direction:column;gap:12px}
+  .cart-item{background:rgba(0,0,0,0.45);padding:12px;border-radius:10px;border:2px solid #00ffff44;display:flex;gap:12px;align-items:center}
+  .cart-item img{width:110px;height:70px;object-fit:cover;border-radius:8px}
+  .ci-info{flex:1}
+  .ci-title{color:var(--neon);font-weight:700}
+  .ci-price{color:#9fffa7;font-weight:700}
+  .qty-control{display:flex;gap:8px;align-items:center}
+  .small-btn{padding:6px 10px;border-radius:8px;border:2px solid var(--neon);background:transparent;color:var(--neon);cursor:pointer}
+  .small-btn:hover{background:var(--neon);color:#000}
+  .totals{margin-top:18px;text-align:right;color:#cfcfcf}
+  .buy-btn{margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--neon);color:#000;border:none;cursor:pointer;font-weight:700}
+  .empty{padding:30px;text-align:center;color:#bbb;background:rgba(0,0,0,0.4);border-radius:12px;border:2px dashed #00ffff44}
+  footer{margin-top:40px;padding:18px;text-align:center;background:rgba(0,0,0,0.75);border-top:1px solid #00ffff33;color:#bbb}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">AURA RP - Sepet</div>
+  <nav><a href="market.html" style="color:#fff;text-decoration:none">Market'e Dön</a></nav>
+</header>
+
+<div class="container">
+  <h2>Sepetiniz</h2>
+  <div id="cartArea"></div>
+  <div id="cartTotals" class="totals"></div>
+</div>
+
+<footer>
+  © 2025 Aura Roleplay — <a href="https://discord.gg/quWAxqxK4T" target="_blank" style="color:#0ff">Discord</a>
+</footer>
+
+<script src="script.js"></script>
+<script>
+renderCartPage();
+
+/* Satın al -> Discord'a yönlendir */
+function proceedToCheckout(){
+  const cart = getCart();
+  if(!cart || cart.length===0){ alert('Sepet boş!'); return; }
+  // İstersen burada bir ödeme adımı veya mesaj oluşturma yapabilirsin.
+  // Şimdilik Discord yönlendirme
+  if(confirm('Satın almayı onaylıyor musunuz? Satın alma konuşmaları için Discord destek kanalına yönlendirileceksiniz.')) {
+    window.location.href = 'https://discord.gg/quWAxqxK4T';
+  }
+}
+</script>
+</body>
+</html>
