@@ -1,175 +1,37 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura RP Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #000010, #020202);
-  color: #fff;
-  overflow-x: hidden;
-}
-/* HEADER */
-header {
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 2px solid #00ffff55;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  backdrop-filter: blur(5px);
-}
-header h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 28px;
-  color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
-}
-nav a { color: #fff; text-decoration: none; margin: 0 15px; transition: .3s;}
-nav a:hover { color: #0ff; text-shadow: 0 0 10px #0ff; }
-/* USER STATUS */
-.user-bar {
-  text-align: right;
-  padding: 10px 30px;
-  background: rgba(0,0,0,0.6);
-  border-bottom: 1px solid #00ffff33;
-}
-.user-bar span { color: #0ff; }
-/* MARKET SECTION */
-.container { max-width: 1200px; margin: 30px auto; padding: 0 20px;}
-h2 { font-family: 'Orbitron', sans-serif; color: #0ff; text-shadow:0 0 15px #0ff; border-left:5px solid #0ff; padding-left:10px;}
-.market-section { margin-bottom: 50px; }
-.market-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:20px;}
-.card {
-  background: rgba(0,0,0,0.5);
-  border: 2px solid #00ffff55;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  transition: all .3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.card:hover { transform: translateY(-5px); box-shadow:0 0 20px #0fffffaa; border-color:#0ff; }
-.card img { width:100%; border-radius:10px; margin-bottom:15px; }
-.card h3 { color:#0ff; margin-bottom:10px; }
-.card p { color:#ccc; font-size:14px; min-height:40px; }
-.card .price { color:#00ffaa; font-weight:600; margin:10px 0;}
-.buttons { display:flex; justify-content:center; gap:10px;}
-.card button, .card a { background: transparent; border:2px solid #0ff; color:#0ff; padding:8px 20px; border-radius:50px; text-decoration:none; transition:.3s; cursor:pointer;}
-.card button:hover, .card a:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
-/* FOOTER */
-footer { text-align:center; padding:20px; background: rgba(0,0,0,0.8); border-top:1px solid #00ffff33; color:#ccc; font-size:14px; margin-top:40px; }
-footer a { color:#0ff; text-decoration:none;}
-footer a:hover { text-shadow:0 0 10px #0ff;}
-@media (max-width:600px){ header{flex-direction:column; text-align:center;} nav{margin-top:10px;} }
-</style>
-</head>
-<body>
-
-<header>
-  <h1>Aura RP Market</h1>
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="forum.html">Forum</a>
-    <a href="market.html">Market</a>
-    <a href="sepet.html">🛒 Sepet</a>
-  </nav>
-</header>
-
-<div class="user-bar" id="userStatus"></div>
-
-<div class="container">
-
-  <div class="market-section">
-    <h2>VIP Paketler</h2>
-    <div class="market-grid" id="vipProducts"></div>
-  </div>
-
-  <div class="market-section">
-    <h2>Araçlar</h2>
-    <div class="market-grid" id="carProducts"></div>
-  </div>
-
-  <div class="market-section">
-    <h2>Evler</h2>
-    <div class="market-grid" id="houseProducts"></div>
-  </div>
-
-  <div class="market-section">
-    <h2>Ekstralar</h2>
-    <div class="market-grid" id="extraProducts"></div>
-  </div>
-
-</div>
-
-<footer>
-<p>© 2025 Aura Roleplay | <a href="https://discord.gg/quWAxqxK4T">Discord'a Katıl</a></p>
-</footer>
+<div class="market-grid" id="vipProducts"></div>
 
 <script>
-const userStatus = document.getElementById('userStatus');
-const user = localStorage.getItem('auraRP_user');
-if(user){
-  userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
-}else{
-  userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
-}
+// Ürünler
+const products = [
+  {name:"Bronz VIP", price:50, img:"vip1.jpg", desc:"Temel avantajlar ve özel tag."},
+  {name:"Altın VIP", price:100, img:"vip2.jpg", desc:"Ev, araç, özel tag ve skin hakları."},
+  {name:"Elmas VIP", price:150, img:"vip3.jpg", desc:"Tüm avantajlar + özel villa."}
+];
 
-// ÜRÜNLER (yerel img klasörüne göre)
-const products = {
-  vip: [
-    {name:"Bronz VIP", price:50, img:"img/vip1.jpg", desc:"Temel avantajlar ve özel tag."},
-    {name:"Altın VIP", price:100, img:"img/vip2.jpg", desc:"Ev, araç, özel tag ve skin hakları."},
-    {name:"Elmas VIP", price:150, img:"img/vip3.jpg", desc:"Tüm avantajlar + özel villa."}
-  ],
-  cars: [
-    {name:"Spor Araç", price:120, img:"img/car1.jpg", desc:"Yüksek hız ve premium tasarım."},
-    {name:"Off-Road Araç", price:90, img:"img/car2.jpg", desc:"Arazide üstün performans sağlar."}
-  ],
-  houses: [
-    {name:"Los Santos Villa", price:250, img:"img/house1.jpg", desc:"3 araçlık garaj, özel manzara."},
-    {name:"Beach House", price:300, img:"img/house2.jpg", desc:"Deniz manzaralı, özel iç mekan."}
-  ],
-  extras: [
-    {name:"İsim Değişikliği", price:15, img:"img/name.jpg", desc:"Karakter ismini değiştir."},
-    {name:"Skin Değişikliği", price:20, img:"img/skin.jpg", desc:"Yeni skin seçme hakkı."}
-  ]
-};
+// Market render
+const vipContainer = document.getElementById("vipProducts");
 
-function renderProducts(sectionId, items){
-  const container = document.getElementById(sectionId);
-  container.innerHTML = items.map(p => `
-    <div class="card">
-      <img src="${p.img}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <p class="price">₺${p.price}</p>
-      <div class="buttons">
-        <button onclick='addToCart(${JSON.stringify(p)})'>Sepete Ekle</button>
-        <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
-      </div>
+products.forEach((p, i) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${p.img}" alt="${p.name}">
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <p class="price">₺${p.price}</p>
+    <div class="buttons">
+      <button id="addCart${i}">Sepete Ekle</button>
+      <a href="https://discord.gg/quWAxqxK4T">Satın Al</a>
     </div>
-  `).join('');
-}
+  `;
+  vipContainer.appendChild(card);
 
-renderProducts("vipProducts", products.vip);
-renderProducts("carProducts", products.cars);
-renderProducts("houseProducts", products.houses);
-renderProducts("extraProducts", products.extras);
-
-// SEPET
-function addToCart(product){
-  let cart = JSON.parse(localStorage.getItem("aura_cart")) || [];
-  cart.push(product);
-  localStorage.setItem("aura_cart", JSON.stringify(cart));
-  alert(product.name + " sepete eklendi!");
-}
+  // Sepete ekle tıklama
+  document.getElementById(`addCart${i}`).addEventListener("click", () => {
+    let cart = JSON.parse(localStorage.getItem("aura_cart")) || [];
+    cart.push(p);
+    localStorage.setItem("aura_cart", JSON.stringify(cart));
+    alert(`${p.name} sepete eklendi!`);
+  });
+});
 </script>
-
-</body>
-</html>
