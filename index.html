@@ -6,18 +6,119 @@
 <title>Aura RP Ana Sayfa</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Poppins',sans-serif; background: radial-gradient(circle at top, #000010,#020202); color:#fff; }
-header { background: rgba(0,0,0,0.85); padding:15px 30px; display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #0ff; }
-header h1 { font-family:'Orbitron',sans-serif; font-size:28px; color:#0ff; text-shadow:0 0 15px #0ff; }
-nav a { color:#fff; text-decoration:none; margin:0 15px; transition:.3s; }
-nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
-.user-bar { text-align:right; padding:10px 30px; background: rgba(0,0,0,0.6); border-bottom:1px solid #00ffff33; }
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background: url('img/banner.jpg') center/cover no-repeat;
+  color:#fff;
+}
+header {
+  background: rgba(0,0,0,0.8);
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:2px solid #0ff;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+header h1 {
+  font-family:'Orbitron',sans-serif;
+  font-size:30px;
+  color:#0ff;
+  text-shadow:0 0 15px #0ff;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:500;
+  transition:.3s;
+}
+nav a:hover {
+  color:#0ff;
+  text-shadow:0 0 10px #0ff;
+}
+.user-bar {
+  text-align:right;
+  padding:10px 30px;
+  background: rgba(0,0,0,0.6);
+  border-bottom:1px solid #00ffff33;
+  font-weight:500;
+}
 .user-bar span { color:#0ff; }
-.container { max-width:1200px; margin:30px auto; padding:0 20px; text-align:center; }
-.btn { background:transparent; border:2px solid #0ff; color:#0ff; padding:10px 25px; border-radius:50px; text-decoration:none; display:inline-block; margin:10px; transition:.3s; }
-.btn:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
-footer { text-align:center; padding:20px; background: rgba(0,0,0,0.8); border-top:1px solid #00ffff33; color:#ccc; font-size:14px; margin-top:40px; }
-footer a { color:#0ff; text-decoration:none;}
+.container {
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 20px;
+}
+.hero {
+  text-align:center;
+  margin-top:100px;
+}
+.hero h2 {
+  font-family:'Orbitron',sans-serif;
+  font-size:48px;
+  color:#0ff;
+  text-shadow:0 0 20px #0ff;
+  margin-bottom:20px;
+}
+.hero p {
+  font-size:20px;
+  margin-bottom:30px;
+  color:#ccc;
+}
+.btn {
+  background:transparent;
+  border:2px solid #0ff;
+  color:#0ff;
+  padding:15px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  margin:10px;
+  transition:.3s;
+  display:inline-block;
+}
+.btn:hover {
+  background:#0ff;
+  color:#000;
+  box-shadow:0 0 20px #0ff;
+}
+.section {
+  background: rgba(0,0,0,0.7);
+  margin:50px 0;
+  padding:40px 20px;
+  border-radius:20px;
+  border:2px solid #0ff;
+}
+.section h3 {
+  font-family:'Orbitron',sans-serif;
+  font-size:28px;
+  color:#0ff;
+  margin-bottom:20px;
+  border-left:5px solid #0ff;
+  padding-left:10px;
+}
+.section p {
+  color:#ccc;
+  font-size:16px;
+  line-height:1.5;
+}
+footer {
+  text-align:center;
+  padding:30px;
+  background: rgba(0,0,0,0.8);
+  border-top:2px solid #0ff;
+  color:#ccc;
+  font-size:14px;
+}
+footer a {
+  color:#0ff;
+  text-decoration:none;
+}
 footer a:hover { text-shadow:0 0 10px #0ff;}
 </style>
 </head>
@@ -35,10 +136,26 @@ footer a:hover { text-shadow:0 0 10px #0ff;}
 
 <div class="user-bar" id="userStatus"></div>
 
-<div class="container">
-  <h2>Sunucumuza Hoşgeldiniz!</h2>
-  <p>Aura RP Roleplay sunucusuna katılın, özel etkinlikler ve VIP avantajları keşfedin.</p>
+<div class="container hero">
+  <h2>Aura Roleplay Sunucusuna Hoşgeldiniz!</h2>
+  <p>GTA SA & MTA RP deneyimini en janti şekilde yaşayın. VIP paketlerle avantajlarınızı katlayın.</p>
   <a href="kayit.html" class="btn">Kayıt Ol / Giriş Yap</a>
+  <a href="market.html" class="btn">Market</a>
+</div>
+
+<div class="container section">
+  <h3>Sunucu Hakkında</h3>
+  <p>Aura RP, Los Santos haritasında eşsiz RP deneyimi sunan, etkinlikleri ve özel sistemleri ile oyuncularına kaliteli bir Roleplay ortamı sağlayan bir sunucudur. Sunucuda adil oyun ve eğlence ön plandadır.</p>
+</div>
+
+<div class="container section">
+  <h3>VIP Paketler</h3>
+  <p>VIP paketler ile özel tag, araç, ev ve skin haklarına sahip olun. Bronz, Altın ve Elmas paketler ile RP deneyiminizi geliştirin.</p>
+</div>
+
+<div class="container section">
+  <h3>Etkinlikler</h3>
+  <p>Haftalık yarışmalar, görevler ve ödüller ile RP deneyiminizi sürekli canlı tutuyoruz. Discord topluluğumuza katılarak tüm etkinliklerden haberdar olabilirsiniz.</p>
 </div>
 
 <footer>
