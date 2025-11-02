@@ -1,69 +1,129 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AuraRP | Gerçekçi Roleplay Deneyimi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav class="nav">
-    <div class="brand">AuraRP</div>
-    <div class="nav-links">
-      <a href="index.html" class="active">Ana Sayfa</a>
-      <a href="characters.html">Karakterler</a>
-      <a href="rules.html">Kurallar</a>
-      <a href="hikaye.html">Hikayeni Yaz</a>
-      <a href="basvuru.html">Ekip Başvurusu</a>
-      <a href="etkinlik.html">Etkinlikler</a>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraRP | Resmi Site</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Gerçekçi Roleplay Deneyimi</h1>
-      <p>Şehrin kurallarını sen yaz. Kendi hikayeni oluştur, dostlarını bul, suçla veya adaletle tanış.</p>
-      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary">Discord’a Katıl</a>
-    </div>
-  </header>
+  <body>
+    <!-- Navbar -->
+    <nav class="nav">
+      <div class="brand">AuraRP</div>
+      <div class="nav-links">
+        <a href="#anasayfa" class="active">Ana Sayfa</a>
+        <a href="#ekip">Ekip Başvurusu</a>
+        <a href="#hikaye">Hikayeni Yaz</a>
+        <a href="#discord">Discord</a>
+      </div>
+    </nav>
 
-  <section class="info">
-    <div class="info-box">
-      <h2>🌆 Yaşayan Bir Şehir</h2>
-      <p>AuraRP, detaylı karakter gelişimi ve topluluk odaklı hikaye örgüsüyle özgün bir RP deneyimi sunar.</p>
-    </div>
+    <!-- Hero -->
+    <section class="hero" id="anasayfa">
+      <div class="hero-content">
+        <h1>✨ Aura Roleplay'e Hoş Geldin!</h1>
+        <p>Gelişmiş hikayeler, güçlü ekip, samimi topluluk. Roleplay dünyasında yeni bir soluk!</p>
+        <a href="#ekip" class="btn-primary">Ekip Başvurusu Yap</a>
+      </div>
+    </section>
 
-    <div class="info-box">
-      <h2>👮 Fraksiyonlar</h2>
-      <p>Polis, EMS, Mafya, Mekanik ve çok daha fazlası. Her meslek kendi hikayesini yaratır.</p>
-    </div>
+    <!-- Bilgi Kutuları -->
+    <section class="info">
+      <div class="info-box">
+        <h3>💼 Güçlü Ekip</h3>
+        <p>Deneyimli yönetim kadromuz ile oyuncularımıza kaliteli RP ortamı sunuyoruz.</p>
+      </div>
 
-    <div class="info-box">
-      <h2>💼 Ekonomik Sistem</h2>
-      <p>Gerçekçi ekonomi, oyuncu odaklı ticaret ve özel iş sistemleri seni bekliyor.</p>
-    </div>
-  </section>
+      <div class="info-box">
+        <h3>📖 Hikayeni Yarat</h3>
+        <p>Kendi karakterini oluştur, şehrin gidişatını sen değiştir!</p>
+      </div>
 
-  <section class="discord-section">
-    <h2>💬 Discord Topluluğumuz</h2>
-    <p>AuraRP ekibiyle tanış, karakter fikirlerini paylaş ve sunucu güncellemelerini takip et.</p>
+      <div class="info-box">
+        <h3>🎧 Aktif Topluluk</h3>
+        <p>Her zaman aktif, yardımsever ve eğlenceli bir Discord topluluğu seni bekliyor.</p>
+      </div>
+    </section>
 
-    <div class="discord-widget">
-      <iframe 
-        src="https://discord.com/widget?id=1302281263981977620&theme=dark" 
-        width="350" 
-        height="500" 
-        allowtransparency="true" 
-        frameborder="0" 
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-      </iframe>
-    </div>
-  </section>
+    <!-- Ekip Başvurusu -->
+    <section class="page" id="ekip">
+      <h1>💼 Ekip Başvurusu</h1>
+      <p>AuraRP ekibine katılmak için formu doldurabilirsin.</p>
 
-  <footer>
-    <p>© 2025 AuraRP. Tüm hakları saklıdır.</p>
-    <p>Discord: <a href="https://discord.gg/quWAxqxK4T" target="_blank">discord.gg/quWAxqxK4T</a></p>
-  </footer>
-</body>
+      <div class="form-glass">
+        <form action="#" method="POST" class="animated-form">
+          <div class="field">
+            <input type="text" name="isim" id="isim" placeholder=" " required />
+            <label for="isim">İsim ve Discord Etiketin</label>
+          </div>
+
+          <div class="field">
+            <select name="pozisyon" id="pozisyon" required>
+              <option value="" disabled selected>Başvurulan Pozisyonu Seç</option>
+              <option value="yetkili">Yetkili</option>
+              <option value="destek">Destek Ekibi</option>
+              <option value="developer">Developer</option>
+              <option value="grafiker">Grafiker</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <textarea name="neden" id="neden" rows="4" placeholder=" " required></textarea>
+            <label for="neden">Neden ekibe katılmak istiyorsun?</label>
+          </div>
+
+          <button type="submit" class="btn-primary">Başvuruyu Gönder</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Hikayeni Yaz -->
+    <section class="page" id="hikaye">
+      <h1>📖 Hikayeni Yaz</h1>
+      <p>Kendi karakterinin geçmişini bizimle paylaş!</p>
+
+      <div class="form-glass">
+        <form action="#" method="POST" class="animated-form">
+          <div class="field">
+            <input type="text" name="karakter" id="karakter" placeholder=" " required />
+            <label for="karakter">Karakter Adı</label>
+          </div>
+
+          <div class="field">
+            <textarea name="hikaye" id="hikaye-text" rows="6" placeholder=" " required></textarea>
+            <label for="hikaye-text">Hikayeni buraya yaz...</label>
+          </div>
+
+          <button type="submit" class="btn-primary">Hikayeyi Gönder</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Discord Topluluğu -->
+    <section class="discord-section" id="discord">
+      <h2>💬 Discord Topluluğumuz</h2>
+      <p>Sunucumuza katıl, ekibimizle tanış ve etkinliklerden haberdar ol!</p>
+
+      <div class="discord-widget">
+        <iframe
+          src="https://discord.com/widget?id=1429447982087929938&theme=dark"
+          width="350"
+          height="500"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        ></iframe>
+      </div>
+
+      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary" style="margin-top:20px;">
+        🔗 Discord’a Katıl
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 AuraRP - Tüm hakları saklıdır.</p>
+    </footer>
+  </body>
 </html>
