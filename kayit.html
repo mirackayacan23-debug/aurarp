@@ -1,0 +1,19 @@
+<h2>Kayıt Ol</h2>
+<form id="registerForm">
+  <input type="text" placeholder="Kullanıcı Adı" required>
+  <input type="email" placeholder="E-posta" required>
+  <input type="password" placeholder="Şifre" required>
+  <button type="submit">Kayıt Ol</button>
+</form>
+
+<script>
+const form = document.getElementById('registerForm');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    // localStorage ile kayıt simülasyonu
+    const username = form[0].value;
+    localStorage.setItem('auraRP_user', username);
+    alert('Kayıt başarıyla tamamlandı! Artık Giriş Yapabilirsiniz.');
+    window.location.href = 'index.html'; // ana sayfaya dön
+});
+</script>
