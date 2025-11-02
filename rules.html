@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sunucu Kuralları - AuraRP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand"><div style="width:10px;height:26px;background:var(--accent);border-radius:3px;"></div> AUR<span style="color:#fff">RP</span></div>
+  <nav class="nav-links">
+    <a href="characters.html">Karakterler</a>
+    <a href="rules.html" class="active">Kurallar</a>
+    <a href="stats.html">İstatistikler</a>
+  </nav>
+</header>
+
+<main style="max-width:900px;margin:80px auto">
+  <h1 style="color:var(--accent)">Sunucu Kuralları</h1>
+  <p style="color:var(--muted)">AuraRP sunucusunda oynarken uymanız gereken kurallar.</p>
+
+  <section class="accordion" style="margin-top:32px">
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <h5>Genel Kurallar</h5>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="acc-body"><p>Küfür, ırkçılık, trolleme yasaktır.</p></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <h5>Roleplay Kuralları</h5>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="acc-body"><p>IC/OOC karışıklığı yasaktır.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>© AuraRP — Tüm hakları saklıdır.</small>
+</footer>
+
+<script>
+function toggleAcc(el){
+  const body = el.nextElementSibling;
+  const icon = el.querySelector('i');
+  const open = body.style.display === 'block';
+  document.querySelectorAll('.acc-body').forEach(b=>b.style.display='none');
+  document.querySelectorAll('.acc-head i').forEach(i=>i.style.transform='rotate(0deg)');
+  if(open){body.style.display='none';icon.style.transform='rotate(0deg)';}
+  else{body.style.display='block';icon.style.transform='rotate(180deg)';}
+}
+</script>
+
+</body>
+</html>
