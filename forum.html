@@ -4,46 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aura RP Forum</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body{margin:0;padding:0;font-family:'Poppins',sans-serif;background:#0d0d0d;color:#fff;}
-header{background:#111;padding:20px;display:flex;justify-content:space-between;align-items:center;}
-header h1{font-family:'Orbitron',sans-serif;color:#0ff;font-size:28px;text-shadow:0 0 10px #0ff;}
-header nav a{color:#fff;margin-left:20px;transition:.3s;text-decoration:none;}
-header nav a:hover{color:#0ff;}
-
-.container{display:flex;max-width:1400px;margin:20px auto;padding:0 20px;gap:20px;}
-.sidebar{flex:1;background:rgba(0,0,0,0.6);border:2px solid #0ff;border-radius:15px;padding:20px;height:max-content;}
-.sidebar h3{color:#0ff;margin-bottom:15px;text-shadow:0 0 5px #0ff;}
-.sidebar a{display:block;color:#ccc;margin:8px 0;transition:.3s;text-decoration:none;}
-.sidebar a:hover{color:#0ff;}
-
-.main{flex:3;}
-.section{background:rgba(0,0,0,0.4);border:2px solid #0ff;border-radius:15px;padding:20px;margin-bottom:20px;transition:.3s;}
-.section:hover{box-shadow:0 0 25px #0ff;transform:scale(1.02);}
-.section h2{color:#0ff;margin-bottom:10px;}
-.section p{color:#ccc;margin-bottom:5px;}
-.section .meta{font-size:14px;color:#0aa;margin-bottom:10px;}
-.button{padding:10px 30px;border:2px solid #0ff;color:#0ff;border-radius:50px;text-decoration:none;transition:.3s;display:inline-block;margin-top:10px;}
-.button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 25px #0ff;transform:scale(1.05);}
-
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.topbar .user-status span{color:#0ff;}
-.topbar .user-status a{color:#0ff;margin-left:15px;transition:.3s;text-decoration:none;}
-.topbar .user-status a:hover{color:#fff;}
-
-/* Modal */
-#modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;}
-#modal .modal-content{background:#111;padding:30px;border-radius:15px;border:2px solid #0ff;width:90%;max-width:500px;text-align:center;}
-#modal input, #modal textarea{width:100%;padding:10px;margin:10px 0;border-radius:10px;border:1px solid #0ff;background:#0d0d0d;color:#fff;}
-#modal button{padding:10px 30px;border:2px solid #0ff;color:#0ff;border-radius:50px;cursor:pointer;transition:.3s;}
-#modal button:hover{background:#0ff;color:#0d0d0d;box-shadow:0 0 25px #0ff;}
-
-@media(max-width:1024px){
-.container{flex-direction:column;}
-.sidebar{width:100%;}
-.main{width:100%;}
-}
+body { margin:0; font-family:'Poppins',sans-serif; background: radial-gradient(circle at top, #000010,#020202); color:#fff; }
+header { background: rgba(0,0,0,0.85); border-bottom:2px solid #0ff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+header h1 { font-family:'Orbitron',sans-serif; font-size:28px; color:#0ff; }
+nav a { color:#fff; text-decoration:none; margin:0 15px; transition:.3s;}
+nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff;}
+.container { max-width:1200px; margin:30px auto; padding:0 20px; }
+.forum-card { background: rgba(0,0,0,0.5); border:2px solid #00ffff55; border-radius:15px; padding:15px; margin-bottom:15px; }
+.forum-card h3 { color:#0ff; margin:0 0 5px 0; }
+.forum-card p { color:#ccc; margin:0; font-size:14px; }
+.forum-actions { text-align:right; margin-bottom:20px; }
+.forum-actions button { background:transparent; border:2px solid #0ff; color:#0ff; padding:5px 15px; border-radius:50px; cursor:pointer; transition:.3s; }
+.forum-actions button:hover { background:#0ff; color:#000; box-shadow:0 0 15px #0ff; }
 </style>
 </head>
 <body>
@@ -51,107 +25,51 @@ header nav a:hover{color:#0ff;}
 <header>
 <h1>Aura RP Forum</h1>
 <nav>
-<a href="index.html">AnaSayfa</a>
-<a href="market.html">Market</a>
-<a href="forum.html">Forum</a>
-<a href="#">Staff</a>
-<a href="#">Blog Yazıları</a>
-<a href="#">Çevrimiçi kullanıcılar</a>
-<a href="#">Leaderboard</a>
+  <a href="index.html">Ana Sayfa</a>
+  <a href="market.html">Market</a>
+  <a href="forum.html">Forum</a>
+  <a href="sepet.html">🛒 Sepet</a>
 </nav>
 </header>
 
 <div class="container">
-
-<div class="sidebar">
-<h3>Menü</h3>
-<a href="forum.html">Forums</a>
-<a href="#">Blog Yazıları</a>
-<a href="#">Staff</a>
-<a href="#">Çevrimiçi kullanıcılar</a>
-<a href="#">Leaderboard</a>
-<a href="#">Tüm aktivite</a>
-<a href="#">Search</a>
-<a href="#">Featured Content</a>
-</div>
-
-<div class="main">
-<div class="topbar">
-<div class="new-topic"><a href="#" class="button" id="openModal">Yeni Konu Aç</a></div>
-<div class="user-status" id="userStatus"></div>
-</div>
-
-<!-- Kategoriler -->
-<div id="forumSections">
-<div class="section">
-<h2>Duyurular</h2>
-<p class="meta">Kategoride hiç mesaj yok.</p>
-</div>
-<div class="section">
-<h2>Genel</h2>
-<p class="meta">Kategoride hiç mesaj yok.</p>
-</div>
-<div class="section">
-<h2>Destek</h2>
-<p class="meta">Kategoride hiç mesaj yok.</p>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modal -->
-<div id="modal">
-<div class="modal-content">
-<h2>Yeni Konu Aç</h2>
-<input type="text" id="topicTitle" placeholder="Konu Başlığı">
-<textarea id="topicContent" placeholder="Mesajınızı yazın..." rows="4"></textarea>
-<button id="addTopic">Oluştur</button>
-<button id="closeModal">İptal</button>
-</div>
+  <div class="forum-actions">
+    <button id="newTopic">Yeni Konu Aç</button>
+  </div>
+  <div id="forumContainer"></div>
 </div>
 
 <script>
-// Kullanıcı durumu
-const userStatus = document.getElementById('userStatus');
-const user = localStorage.getItem('auraRP_user');
+// Basit forum sistemi (localStorage)
+let forumTopics = JSON.parse(localStorage.getItem("aura_forum")) || [];
 
-if(user){
-  userStatus.innerHTML = `<span>Hoşgeldin, ${user}!</span>`;
-}else{
-  userStatus.innerHTML = `<span>Zaten üye misin?</span> <a href="kayit.html">Giriş Yap</a> / <a href="kayit.html">Kayıt Ol</a>`;
+function renderForum(){
+  const container = document.getElementById("forumContainer");
+  container.innerHTML = "";
+  forumTopics.forEach((topic, i)=>{
+    const card = document.createElement("div");
+    card.className="forum-card";
+    card.innerHTML=`
+      <h3>${topic.title}</h3>
+      <p>${topic.content}</p>
+      <p style="color:#0ff; font-size:12px;">Yazan: ${topic.author}</p>
+    `;
+    container.appendChild(card);
+  });
 }
 
-// Modal aç/kapa
-const modal = document.getElementById('modal');
-document.getElementById('openModal').onclick = () => {
-  if(user){
-    modal.style.display = 'flex';
-  } else {
-    alert('Lütfen önce giriş yapın!');
-  }
-}
-document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+document.getElementById("newTopic").addEventListener("click",()=>{
+  const title = prompt("Konu Başlığı:");
+  if(!title) return;
+  const content = prompt("Konu İçeriği:");
+  if(!content) return;
+  const author = localStorage.getItem("auraRP_user") || "Anonim";
+  forumTopics.push({title,content,author});
+  localStorage.setItem("aura_forum",JSON.stringify(forumTopics));
+  renderForum();
+});
 
-// Yeni konu ekleme
-document.getElementById('addTopic').onclick = () => {
-  const title = document.getElementById('topicTitle').value;
-  const content = document.getElementById('topicContent').value;
-  if(!title || !content){
-    alert('Lütfen başlık ve içerik girin!');
-    return;
-  }
-
-  const sectionDiv = document.createElement('div');
-  sectionDiv.className = 'section';
-  sectionDiv.innerHTML = `<h2>${title}</h2><p class="meta">Yazan: ${user}, şimdi</p><p>${content}</p>`;
-
-  document.getElementById('forumSections').prepend(sectionDiv);
-
-  // Modal kapat ve alanları temizle
-  modal.style.display = 'none';
-  document.getElementById('topicTitle').value = '';
-  document.getElementById('topicContent').value = '';
-}
+renderForum();
 </script>
 
 </body>
