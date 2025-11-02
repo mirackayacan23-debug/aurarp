@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; color:#fff; background:#000; overflow-x:hidden; }
+body { font-family:'Poppins',sans-serif; background:#000; color:#fff; }
 
 /* Header */
 header { position:fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(0,0,0,0.85); border-bottom:2px solid #0ff; }
@@ -40,7 +40,6 @@ nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-top:2px solid #0ff; color:#ccc; font-size:14px; }
 footer a { color:#0ff; text-decoration:none; }
 footer a:hover { text-shadow:0 0 10px #0ff; }
-
 </style>
 </head>
 <body>
@@ -59,19 +58,19 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 
 <div class="market-container">
   <div class="product">
-    <img src="img/product1.jpg" alt="Ürün 1">
+    <img src="img/product1.jpg" alt="Bronz VIP">
     <h4>Bronz VIP</h4>
     <p>Temel avantajlar ve özel tag.</p>
     <button onclick="addToCart('Bronz VIP')">Sepete Ekle</button>
   </div>
   <div class="product">
-    <img src="img/product2.jpg" alt="Ürün 2">
+    <img src="img/product2.jpg" alt="Altın VIP">
     <h4>Altın VIP</h4>
     <p>Ev, araç, özel tag ve skin hakları.</p>
     <button onclick="addToCart('Altın VIP')">Sepete Ekle</button>
   </div>
   <div class="product">
-    <img src="img/product3.jpg" alt="Ürün 3">
+    <img src="img/product3.jpg" alt="Elmas VIP">
     <h4>Elmas VIP</h4>
     <p>Tüm avantajlar + özel villa.</p>
     <button onclick="addToCart('Elmas VIP')">Sepete Ekle</button>
@@ -89,15 +88,17 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 </footer>
 
 <script>
+// Kullanıcı durumu
 const userStatus = document.getElementById('userStatus');
 const user = localStorage.getItem('auraRP_user');
-if(user){
+const loggedIn = localStorage.getItem('auraRP_loggedIn');
+if(loggedIn && user){
   userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
 }else{
   userStatus.innerHTML = `Zaten üye misin? <a href="kayit.html" style="color:#0ff">Giriş Yap</a> / <a href="kayit.html" style="color:#0ff">Kayıt Ol</a>`;
 }
 
-// Sepet İşlevi
+// Sepet işlevi
 let cart = [];
 function addToCart(item){
   cart.push(item);
@@ -106,7 +107,7 @@ function addToCart(item){
 function renderCart(){
   const cartList = document.getElementById('cartList');
   cartList.innerHTML = '';
-  cart.forEach((item,i) => {
+  cart.forEach((item,i)=>{
     const li = document.createElement('li');
     li.textContent = item;
     const removeBtn = document.createElement('button');
@@ -115,12 +116,12 @@ function renderCart(){
     removeBtn.style.background='transparent';
     removeBtn.style.color='#0ff';
     removeBtn.style.cursor='pointer';
-    removeBtn.onclick = () => { cart.splice(i,1); renderCart(); }
+    removeBtn.onclick = ()=>{ cart.splice(i,1); renderCart(); }
     li.appendChild(removeBtn);
     cartList.appendChild(li);
   });
 }
-function clearCart(){ cart = []; renderCart(); }
+function clearCart(){ cart=[]; renderCart(); }
 </script>
 
 </body>
