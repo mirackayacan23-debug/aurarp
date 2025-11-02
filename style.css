@@ -1,4 +1,3 @@
-/* ---------- Genel Ayarlar ---------- */
 :root {
   --bg: #0e0e12;
   --text: #eaeaea;
@@ -152,7 +151,7 @@ body {
   margin-bottom: 40px;
 }
 
-/* ---------- Form Tasarımı (Modern) ---------- */
+/* ---------- Form Tasarımı ---------- */
 .form-glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
