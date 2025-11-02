@@ -15,7 +15,7 @@ header h1 { font-family:'Orbitron',sans-serif; font-size:32px; color:#0ff; text-
 nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:.3s; }
 nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 
-/* Kullanıcı durumu */
+/* Kullanıcı durumu sağ üst */
 .user-bar { text-align:right; padding:10px 50px; margin-top:70px; font-weight:500; color:#0ff; }
 
 /* Hero */
@@ -23,6 +23,8 @@ nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 .hero img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.4); }
 .hero h2 { font-family:'Orbitron',sans-serif; font-size:60px; color:#0ff; text-shadow:0 0 25px #0ff; z-index:1; margin-bottom:20px; }
 .hero p { font-size:22px; color:#ccc; z-index:1; margin-bottom:40px; max-width:800px; }
+
+/* Butonlar */
 .hero .btn { position:relative; background:transparent; border:2px solid #0ff; color:#0ff; padding:15px 35px; border-radius:50px; font-weight:600; font-size:16px; margin:10px; text-decoration:none; z-index:1; transition:.3s; display:inline-block; }
 .hero .btn:hover { background:#0ff; color:#000; box-shadow:0 0 25px #0ff; transform:scale(1.05); }
 
@@ -31,23 +33,10 @@ nav a:hover { color:#0ff; text-shadow:0 0 10px #0ff; }
 .section h3 { font-family:'Orbitron',sans-serif; font-size:36px; color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:20px; }
 .section p { color:#ccc; font-size:18px; line-height:1.6; max-width:900px; margin:0 auto; }
 
-/* Slider */
-.slider-container { position:relative; overflow:hidden; max-width:100%; }
-.slider { display:flex; gap:20px; transition: transform 0.5s linear; }
-.slide { min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; text-align:left; flex-shrink:0; transition:.3s; }
-.slide:hover { transform:scale(1.05); box-shadow:0 0 20px #0ff; }
-.slide h4 { color:#0ff; font-size:20px; margin-bottom:10px; }
-.slide p { color:#ccc; font-size:14px; }
-
 /* Footer */
 footer { text-align:center; padding:30px; background: rgba(0,0,0,0.85); border-top:2px solid #0ff; color:#ccc; font-size:14px; }
 footer a { color:#0ff; text-decoration:none; }
 footer a:hover { text-shadow:0 0 10px #0ff; }
-
-/* Scrollbar */
-::-webkit-scrollbar { height:8px; }
-::-webkit-scrollbar-thumb { background:#0ff; border-radius:4px; }
-::-webkit-scrollbar-track { background:#000; }
 </style>
 </head>
 <body>
@@ -59,6 +48,7 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
   <a href="forum.html">Forum</a>
   <a href="market.html">Market</a>
   <a href="sepet.html">🛒 Sepet</a>
+  <a href="https://discord.gg/quWAxqxK4T" target="_blank" style="color:#0ff; border:2px solid #0ff; padding:5px 15px; border-radius:50px; margin-left:15px; text-decoration:none; transition:.3s;">Hemen Katıl</a>
 </nav>
 </header>
 
@@ -80,10 +70,19 @@ footer a:hover { text-shadow:0 0 10px #0ff; }
 <section class="section">
 <h3>Öne Çıkan Paketler</h3>
 <div class="slider-container">
-  <div class="slider" id="vipSlider">
-    <div class="slide"> <h4>Bronz VIP</h4> <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p> </div>
-    <div class="slide"> <h4>Altın VIP</h4> <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p> </div>
-    <div class="slide"> <h4>Elmas VIP</h4> <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p> </div>
+  <div class="slider" id="vipSlider" style="display:flex; gap:20px; overflow-x:auto;">
+    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
+      <h4>Bronz VIP</h4>
+      <p>Temel avantajlar ve özel tag ile RP deneyiminizi geliştirin.</p>
+    </div>
+    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
+      <h4>Altın VIP</h4>
+      <p>Ev, araç, özel tag ve skin haklarına sahip olun.</p>
+    </div>
+    <div class="slide" style="min-width:280px; background:rgba(0,0,0,0.6); border:2px solid #0ff; border-radius:15px; padding:20px; color:#fff;">
+      <h4>Elmas VIP</h4>
+      <p>Tüm avantajlar + özel villa ve ekstra imkanlar.</p>
+    </div>
   </div>
 </div>
 </section>
@@ -104,17 +103,8 @@ const loggedIn = localStorage.getItem('auraRP_loggedIn');
 if(loggedIn && user){
   userStatus.innerHTML = `Hoşgeldin, <span>${user}</span>`;
 }else{
-  userStatus.innerHTML = ``; // Kayıt/Giriş metni artık ana sayfada görünmeyecek
+  userStatus.innerHTML = ``; // Ana sayfada kayıt/giriş görünmez
 }
-
-// Slider sonsuz loop
-const slider = document.getElementById('vipSlider');
-let sliderPos = 0;
-setInterval(() => {
-  sliderPos += 1;
-  if(sliderPos > slider.scrollWidth / 2) sliderPos = 0;
-  slider.style.transform = `translateX(-${sliderPos}px)`;
-}, 20);
 </script>
 
 </body>
