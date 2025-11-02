@@ -1,92 +1,57 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AuraRP | Resmi Site</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <!-- Navbar -->
-    <nav class="nav">
-      <div class="brand">AuraRP</div>
-      <div class="nav-links">
-        <a href="#anasayfa" class="active">Ana Sayfa</a>
-        <a href="#ekip">Ekip</a>
-        <a href="#hikaye">Hikayeni Yaz</a>
-        <a href="#discord">Discord</a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraRP | Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>AuraRP</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="kurallar.html">Kurallar</a></li>
+        <li><a href="karakterler.html">Karakterler</a></li>
+        <li><a href="istatistikler.html">İstatistikler</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero" id="anasayfa">
-      <div class="hero-content">
-        <h1>✨ Aura Roleplay'e Hoş Geldin!</h1>
-        <p>Gelişmiş hikayeler, güçlü ekip, samimi topluluk. Roleplay dünyasında yeni bir soluk!</p>
-        <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary">🚀 Hemen Katıl</a>
-      </div>
+  <main>
+    <section class="hero">
+      <h2>AuraRP Dünyasına Hoş Geldin</h2>
+      <p>Rol yapmaya başla, hikayeni oluştur ve topluluğumuza katıl!</p>
+      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary">🚀 Hemen Katıl</a>
     </section>
 
-    <!-- Ekip Başvurusu -->
-    <section class="page" id="ekip">
-      <h1>💼 Ekip Başvurusu</h1>
-      <p>Ekibimize katılmak ister misin? Formu doldur, hemen inceleyelim.</p>
-
-      <div class="form-glass">
-        <form action="#" method="POST" class="animated-form">
-          <div class="field">
-            <input type="text" name="isim" id="isim" placeholder=" " required />
-            <label for="isim">İsim ve Discord Etiketin</label>
-          </div>
-
-          <div class="field">
-            <select name="pozisyon" id="pozisyon" required>
-              <option value="" disabled selected>Başvurulan Pozisyonu Seç</option>
-              <option value="yetkili">Yetkili</option>
-              <option value="destek">Destek Ekibi</option>
-              <option value="developer">Developer</option>
-              <option value="grafiker">Grafiker</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <textarea name="neden" id="neden" rows="4" placeholder=" " required></textarea>
-            <label for="neden">Neden ekibe katılmak istiyorsun?</label>
-          </div>
-
-          <button type="submit" class="btn-primary">Başvuruyu Gönder</button>
-        </form>
-      </div>
+    <section class="form-section">
+      <h2>🧩 Ekip Başvurusu</h2>
+      <p>Ekibimize katılmak istiyorsan aşağıdaki formu doldur!</p>
+      <form id="ekipForm">
+        <input type="text" name="isim" placeholder="Adın ve Soyadın" required />
+        <input type="text" name="yas" placeholder="Yaşın" required />
+        <input type="text" name="rol" placeholder="Başvurmak istediğin rol" required />
+        <textarea name="neden" placeholder="Neden bu role uygun olduğunu anlat..." required></textarea>
+        <button type="submit" class="btn-primary">Gönder</button>
+      </form>
     </section>
 
-    <!-- Hikayeni Yaz -->
-    <section class="page" id="hikaye">
-      <h1>📖 Hikayeni Yaz</h1>
-      <p>Kendi karakterinin geçmişini bizimle paylaş!</p>
-
-      <div class="form-glass">
-        <form action="#" method="POST" class="animated-form">
-          <div class="field">
-            <input type="text" name="karakter" id="karakter" placeholder=" " required />
-            <label for="karakter">Karakter Adı</label>
-          </div>
-
-          <div class="field">
-            <textarea name="hikaye" id="hikaye-text" rows="6" placeholder=" " required></textarea>
-            <label for="hikaye-text">Karakterinin hikayesini buraya yaz...</label>
-          </div>
-
-          <button type="submit" class="btn-primary">Hikayeyi Gönder</button>
-        </form>
-      </div>
+    <section class="form-section">
+      <h2>📜 Hikayeni Yaz</h2>
+      <p>Karakterinin geçmişini bizimle paylaş!</p>
+      <form id="hikayeForm">
+        <input type="text" name="karakter" placeholder="Karakter İsmi" required />
+        <textarea name="hikaye" placeholder="Karakterinin hikayesini yaz..." required></textarea>
+        <button type="submit" class="btn-primary">Gönder</button>
+      </form>
     </section>
 
-    <!-- Discord Topluluğu -->
     <section class="discord-section" id="discord">
       <h2>💬 Discord Topluluğumuz</h2>
-      <p>Sunucumuza katıl, ekibimizle tanış ve etkinliklerden haberdar ol!</p>
-
+      <p>Topluluğumuza katıl, ekibimizle tanış ve etkinliklerden haberdar ol!</p>
       <div class="discord-widget">
         <iframe
           src="https://discord.com/widget?id=1429447982087929938&theme=dark"
@@ -97,15 +62,38 @@
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
         ></iframe>
       </div>
-
-      <a href="https://discord.gg/quWAxqxK4T" target="_blank" class="btn-primary" style="margin-top:20px;">
-        🔗 Discord’a Katıl
-      </a>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 AuraRP - Tüm hakları saklıdır.</p>
-    </footer>
-  </body>
+  <footer>
+    <p>© 2025 AuraRP | Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    const ekipWebhook = "WEBHOOK_URLINI_BURAYA_YAZ"; // buraya kendi webhook'unu ekle
+    const hikayeWebhook = "WEBHOOK_URLINI_BURAYA_YAZ"; // buraya da hikaye webhook'unu ekle
+
+    document.getElementById("ekipForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const payload = {
+        content: `🧩 **Yeni Ekip Başvurusu**\n👤 İsim: ${data.get("isim")}\n🎂 Yaş: ${data.get("yas")}\n🎭 Rol: ${data.get("rol")}\n📝 Sebep: ${data.get("neden")}`
+      };
+      await fetch(ekipWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      alert("Başvurun gönderildi!");
+      e.target.reset();
+    });
+
+    document.getElementById("hikayeForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const payload = {
+        content: `📜 **Yeni Hikaye Gönderimi**\n👤 Karakter: ${data.get("karakter")}\n📖 Hikaye:\n${data.get("hikaye")}`
+      };
+      await fetch(hikayeWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      alert("Hikayen gönderildi!");
+      e.target.reset();
+    });
+  </script>
+</body>
 </html>
