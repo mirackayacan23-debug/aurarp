@@ -22,22 +22,22 @@
 
   <section class="page">
     <h1>🧩 Ekip Başvurusu</h1>
-    <p>Ekibe katılmak için aşağıdaki formu dikkatlice doldur.</p>
+    <p>Ekibe katılmak için aşağıdaki formu doldur. Gönderdiğinde otomatik olarak Discord’a düşer 💬</p>
 
     <div class="form-glass animated-form">
-      <form class="form">
+      <form id="basvuruForm" class="form">
         <div class="field">
-          <input type="text" placeholder=" " required />
+          <input type="text" id="adsoyad" placeholder=" " required />
           <label>Ad Soyad</label>
         </div>
 
         <div class="field">
-          <input type="text" placeholder=" " required />
+          <input type="text" id="discord" placeholder=" " required />
           <label>Discord Kullanıcı Adı</label>
         </div>
 
         <div class="field">
-          <select required>
+          <select id="rol" required>
             <option value="" disabled selected>Başvurmak İstediğin Rol</option>
             <option>Admin Ekibi</option>
             <option>Destek Ekibi</option>
@@ -48,15 +48,56 @@
         </div>
 
         <div class="field">
-          <textarea placeholder=" " rows="6" required></textarea>
+          <textarea id="neden" placeholder=" " rows="6" required></textarea>
           <label>Neden bu ekibe katılmak istiyorsun?</label>
         </div>
 
         <button type="submit" class="btn-primary">Başvuru Gönder</button>
       </form>
+      <p id="sonuc" style="margin-top:15px;"></p>
     </div>
   </section>
 
   <footer>© 2025 AuraRP. Tüm hakları saklıdır.</footer>
+
+  <script>
+    const form = document.getElementById("basvuruForm");
+    const sonuc = document.getElementById("sonuc");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const adsoyad = document.getElementById("adsoyad").value;
+      const discord = document.getElementById("discord").value;
+      const rol = document.getElementById("rol").value;
+      const neden = document.getElementById("neden").value;
+
+      const webhookURL = "https://discord.com/api/webhooks/1434629884033892472/Bo7_H2vDomMUhMc7yt0xZErw7Gt7ziIVkmk5keHF4_tmwaASaGBjmC-CQoaCnkeBcS1G"; // 🔹 Buraya kendi webhook linkini yapıştır!
+
+      const payload = {
+        content: `📨 **Yeni Ekip Başvurusu**\n**Ad Soyad:** ${adsoyad}\n**Discord:** ${discord}\n**Rol:** ${rol}\n**Neden:** ${neden}`
+      };
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          sonuc.textContent = "✅ Başvurun başarıyla gönderildi!";
+          sonuc.style.color = "#4ade80";
+          form.reset();
+        } else {
+          sonuc.textContent = "⚠️ Bir hata oluştu. Tekrar dene.";
+          sonuc.style.color = "#f87171";
+        }
+      } catch (error) {
+        sonuc.textContent = "🚫 Bağlantı kurulamadı.";
+        sonuc.style.color = "#f87171";
+      }
+    });
+  </script>
 </body>
 </html>
