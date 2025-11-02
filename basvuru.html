@@ -22,21 +22,36 @@
 
   <section class="page">
     <h1>🧩 Ekip Başvurusu</h1>
-    <p>Yönetim veya rol ekibimize katılmak istiyorsan aşağıdaki formu dikkatlice doldur.</p>
+    <p>Ekibe katılmak için aşağıdaki formu dikkatlice doldur.</p>
 
-    <div class="form-glass">
+    <div class="form-glass animated-form">
       <form class="form">
-        <input type="text" placeholder="Ad Soyad" required />
-        <input type="text" placeholder="Discord Kullanıcı Adı (ör. kullanici#0001)" required />
-        <select required>
-          <option value="" disabled selected>Başvurmak İstediğin Rol</option>
-          <option>Admin Ekibi</option>
-          <option>Destek Ekibi</option>
-          <option>EMS</option>
-          <option>LSPD</option>
-          <option>Mekanik</option>
-        </select>
-        <textarea placeholder="Neden bu ekibe katılmak istiyorsun?" rows="6" required></textarea>
+        <div class="field">
+          <input type="text" placeholder=" " required />
+          <label>Ad Soyad</label>
+        </div>
+
+        <div class="field">
+          <input type="text" placeholder=" " required />
+          <label>Discord Kullanıcı Adı</label>
+        </div>
+
+        <div class="field">
+          <select required>
+            <option value="" disabled selected>Başvurmak İstediğin Rol</option>
+            <option>Admin Ekibi</option>
+            <option>Destek Ekibi</option>
+            <option>EMS</option>
+            <option>LSPD</option>
+            <option>Mekanik</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <textarea placeholder=" " rows="6" required></textarea>
+          <label>Neden bu ekibe katılmak istiyorsun?</label>
+        </div>
+
         <button type="submit" class="btn-primary">Başvuru Gönder</button>
       </form>
     </div>
