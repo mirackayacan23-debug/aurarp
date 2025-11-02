@@ -1,83 +1,196 @@
-:root{
-  --bg-1: #0e0e12;
-  --bg-2: #15131a;
-  --accent: #a855f7;
+:root {
+  --bg: #0e0e12;
   --text: #eaeaea;
-  --muted: #bdbdbd;
-  --card: rgba(255,255,255,0.03);
+  --text-light: #b5b5b5;
+  --accent: #a855f7;
   --radius: 12px;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:var(--text);
-  background: radial-gradient(circle at top, #1a1720 0%, #0e0e12 80%);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* NAV */
-.nav{
-  position:sticky; top:0;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 40px;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(8px);
-  z-index:50;
+body {
+  background: radial-gradient(circle at top, #1a1a25 0%, #0e0e12 80%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.brand{ font-weight:800; color:var(--accent); font-size:1.2rem }
-.nav-links a{ color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600 }
-.nav-links a:hover, .nav-links a.active{ color:var(--accent) }
 
-/* HERO */
-.hero{ padding:90px 18px; text-align:center; background: linear-gradient(180deg, rgba(168,85,247,0.06), transparent) }
-.hero-content h1{ font-size:2.6rem; margin-bottom:10px; color:var(--accent) }
-.hero-content p{ color:var(--muted); max-width:800px; margin: 0 auto 20px; font-size:1rem }
-.hero-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px }
-.btn-primary, .btn-secondary{
-  display:inline-block; padding:10px 18px; border-radius:10px; font-weight:700; text-decoration:none; cursor:pointer;
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-.btn-primary{ background:var(--accent); color:#fff }
-.btn-primary:hover{ box-shadow:0 8px 30px rgba(168,85,247,0.18) }
-.btn-secondary{ border:1px solid rgba(255,255,255,0.06); color:var(--text) }
 
-/* INFO */
-main{ flex:1 }
-.info{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:20px; padding:36px; max-width:1200px; margin:0 auto }
-.info-box{ background:var(--card); padding:22px; border-radius:var(--radius); text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.5) }
-.info-box h3{ color:var(--accent); margin-bottom:8px }
-.info-box p{ color:var(--muted) }
+.brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
 
-/* DISCORD SECTION */
-.discord-section{ max-width:900px; margin:30px auto; padding:28px; border-radius:var(--radius); background: rgba(255,255,255,0.02); text-align:center; box-shadow: 0 10px 40px rgba(0,0,0,0.6) }
-.discord-wrapper{ display:flex; justify-content:center; align-items:flex-start; gap:18px; margin-top:18px }
+.nav-links a {
+  color: var(--text);
+  margin: 0 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-/* iframe */
-.discord-wrapper iframe{ border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:#111; }
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
 
-/* fallback card */
-.discord-fallback{ width:360px; max-width:95%; border-radius:10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; display:flex; align-items:center; justify-content:center; }
-.fallback-inner{ text-align:center; padding:6px }
-.fallback-title{ font-weight:700; color:var(--accent); margin-bottom:8px }
-.fallback-body p{ color:var(--muted); margin-bottom:14px }
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.1), transparent);
+}
 
-/* PAGE & FORMS (genel sayfa stillerle uyumlu bırakıldı) */
-.page{ padding:56px 20px; text-align:center }
-.page h1{ color:var(--accent); margin-bottom:8px }
-.page p{ color:var(--muted); margin-bottom:20px }
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
 
-/* FORM GLASS (diğer sayfalarda kullanılıyor) */
-.form-glass{ background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); padding:28px; border-radius:10px; max-width:720px; margin: 18px auto; box-shadow:0 10px 30px rgba(0,0,0,0.6) }
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
 
-/* FOOTER */
-footer{ padding:18px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02) }
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
-/* RESPONSIVE */
-@media (max-width:900px){
-  .nav{ padding:12px 18px }
-  .hero-content h1{ font-size:2rem }
-  .discord-wrapper{ flex-direction:column; align-items:center }
+.btn-primary:hover {
+  background: #9333ea;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* Formlar */
+.form-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  padding: 40px;
+  max-width: 600px;
+  margin: 30px auto;
+  transition: 0.3s ease;
+}
+
+.animated-form .field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.animated-form input,
+.animated-form textarea,
+.animated-form select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.animated-form input:focus,
+.animated-form textarea:focus,
+.animated-form select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
+
+.animated-form label {
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  color: var(--text-light);
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.animated-form input:focus + label,
+.animated-form textarea:focus + label,
+.animated-form input:not(:placeholder-shown) + label,
+.animated-form textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  background: var(--bg);
+  padding: 0 6px;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* Discord */
+.discord-section {
+  text-align: center;
+  margin: 60px auto;
+  padding: 40px;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.discord-section h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.discord-section p {
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.discord-widget {
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+  .form-glass {
+    padding: 25px;
+  }
+
+  .discord-widget iframe {
+    width: 100%;
+    height: 400px;
+  }
 }
