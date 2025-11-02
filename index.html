@@ -131,7 +131,6 @@ header nav a{margin:10px 0;}
 <div class="rule-card"><p>6. Oyuncular arası çatışmaların keyifli ve adil olmasına özen gösterin.</p></div>
 </section>
 
-<!-- Forum ve Market Butonları -->
 <div class="btn-section">
 <a href="market.html">Market</a>
 <a href="forum.html">Forum</a>
@@ -142,26 +141,17 @@ header nav a{margin:10px 0;}
 </footer>
 
 <script>
-// Scroll animasyonu
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      sec.classList.add('visible');
-    }
-  });
+sections.forEach(sec => {
+  const top = sec.getBoundingClientRect().top;
+  if(top < window.innerHeight - 100){ sec.classList.add('visible'); }
+});
 });
 
-// Kayıt/Giriş butonu
 const registerBtn = document.getElementById('registerBtn');
-if(localStorage.getItem('auraRP_user')){
-    registerBtn.textContent = 'Giriş Yap';
-}
-registerBtn.addEventListener('click', () => {
-    window.location.href = 'kayit.html'; // Kayıt formu sayfası
-});
+if(localStorage.getItem('auraRP_user')){ registerBtn.textContent = 'Giriş Yap'; }
+registerBtn.addEventListener('click', () => { window.location.href = 'kayit.html'; });
 </script>
-
 </body>
 </html>
