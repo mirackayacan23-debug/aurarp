@@ -3,259 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Roleplay - Şıklık ve Kalite</title>
+    <title>Aura Roleplay - Ana Sayfa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* CSS Stilleri (Önceki Janti Stili) */
-        
-        /* Tema Renkleri */
         :root {
             --dark-bg: #0c0d10;
             --card-bg: #1a1c22;
-            --accent-color: #f7a300; /* Altın Sarısı Vurgu */
+            --accent-color: #f7a300; 
             --text-light: #f4f4f4;
             --text-subtle: #a0a0a0;
             --border-color: #3b3e47;
         }
-
-        /* Genel Ayarlar */
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--accent-color);
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #ffc44d;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* HEADER - NAVİGASYON BARI */
-        header {
-            background-color: var(--dark-bg);
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-        }
-
-        nav a {
-            margin-left: 30px;
-            font-weight: 600;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s;
-        }
-
-        nav a:hover:after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background-color: var(--accent-color);
-            color: var(--dark-bg) !important;
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-left: 30px;
-            border: none;
-        }
-
-        .cta-button:hover {
-            background-color: #ffc44d;
-            transform: translateY(-2px);
-        }
-
-        /* HERO SECTION (ANA EKRAN) */
-        .hero-section {
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            /* ** BURAYA GÖRSELİ EKLE ** */
-            /* background-image: url('images/aura-bg.jpg'); */ 
-            background-size: cover;
-            background-position: center;
-        }
-        
-        /* Arkaplan Overlay */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-content {
-            z-index: 10;
-            max-width: 900px;
-            padding: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            line-height: 1.1;
-            color: var(--accent-color); 
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(247, 163, 0, 0.5); 
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        .hero-buttons .button {
-            font-size: 1.1rem;
-            padding: 15px 35px;
-            margin: 0 15px;
-            border: 2px solid;
-            display: inline-block;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.2s;
-            text-transform: uppercase;
-        }
-
-        .hero-buttons .primary {
-            background-color: var(--accent-color);
-            color: var(--dark-bg);
-            border-color: var(--accent-color);
-        }
-
-        .hero-buttons .primary:hover {
-            background-color: #ffc44d;
-            transform: scale(1.05);
-        }
-
-        .hero-buttons .secondary {
-            background-color: transparent;
-            color: var(--text-light);
-            border-color: var(--text-light);
-        }
-
-        .hero-buttons .secondary:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            transform: scale(1.05);
-        }
-        
-        /* BÖLÜMLER (FEATURES) */
-        .features-section {
-            padding: 80px 0;
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .features-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            font-weight: 700;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background-color: var(--dark-bg);
-            padding: 40px 30px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: var(--text-subtle);
-        }
-        
-        /* FOOTER */
-        footer {
-            background-color: var(--dark-bg);
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            text-align: center;
-            color: var(--text-subtle);
-            font-size: 0.9rem;
-        }
-
-        .footer-links a {
-            margin: 0 10px;
-            color: var(--text-subtle);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth;}
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--text-light); text-transform: uppercase;}
+        a { text-decoration: none; color: var(--accent-color); transition: color 0.3s;}
+        a:hover { color: #ffc44d;}
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        header { background-color: var(--dark-bg); padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000;}
+        .navbar { display: flex; justify-content: space-between; align-items: center;}
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; color: var(--accent-color);}
+        nav a { margin-left: 30px; font-weight: 600; padding: 5px 0; position: relative;}
+        nav a:after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s;}
+        nav a:hover:after { width: 100%;}
+        .cta-button { background-color: var(--accent-color); color: var(--dark-bg) !important; padding: 8px 18px; border-radius: 4px; font-weight: 700; transition: background-color 0.3s, transform 0.2s; margin-left: 30px; border: none;}
+        .cta-button:hover { background-color: #ffc44d; transform: translateY(-2px);}
+        .hero-section { height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; background-size: cover; background-position: center;}
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7);}
+        .hero-content { z-index: 10; max-width: 900px; padding: 20px;}
+        .hero-content h1 { font-size: 4rem; margin-bottom: 10px; line-height: 1.1; color: var(--accent-color); font-weight: 900; text-shadow: 0 0 15px rgba(247, 163, 0, 0.5);}
+        .hero-content p { font-size: 1.5rem; margin-bottom: 40px; color: var(--text-light); font-weight: 300;}
+        .hero-buttons .button { font-size: 1.1rem; padding: 15px 35px; margin: 0 15px; border: 2px solid; display: inline-block; border-radius: 4px; transition: background-color 0.3s, transform 0.2s; text-transform: uppercase;}
+        .hero-buttons .primary { background-color: var(--accent-color); color: var(--dark-bg); border-color: var(--accent-color);}
+        .hero-buttons .primary:hover { background-color: #ffc44d; transform: scale(1.05);}
+        .hero-buttons .secondary { background-color: transparent; color: var(--text-light); border-color: var(--text-light);}
+        .hero-buttons .secondary:hover { border-color: var(--accent-color); color: var(--accent-color); transform: scale(1.05);}
+        .features-section { padding: 80px 0; background-color: var(--card-bg); border-top: 1px solid var(--border-color); text-align: center;}
+        .features-section h2 { font-size: 2.5rem; margin-bottom: 50px; font-weight: 700;}
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;}
+        .feature-card { background-color: var(--dark-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s;}
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);}
+        .feature-card h3 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 15px;}
+        .feature-card p { color: var(--text-subtle);}
+        .content-section { padding: 60px 0; background-color: var(--card-bg); border-bottom: 1px solid var(--border-color);}
+        .content-section h2 { text-align: center; margin-bottom: 40px;}
+        /* Rules Card Specific */
+        .rule-card { background-color: var(--dark-bg); padding: 25px; border-radius: 6px; margin-bottom: 20px; border-left: 5px solid var(--accent-color);}
+        .rule-card h3 { margin-top: 0; font-size: 1.2rem;}
+        .rule-card p { color: var(--text-subtle);}
+        /* Staff Card Specific */
+        .staff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;}
+        .staff-card { background-color: var(--dark-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);}
+        .staff-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-color); margin-bottom: 15px;}
+        .staff-card h3 { margin: 0 0 5px 0; color: var(--accent-color);}
+        .staff-card p { margin: 0; font-size: 0.9rem; color: var(--text-subtle);}
+        /* Lore Specific */
+        .lore-tabs { display: flex; justify-content: center; margin-bottom: 40px;}
+        .lore-tabs button { background: none; border: 1px solid var(--border-color); color: var(--text-light); padding: 10px 20px; margin: 0 5px; cursor: pointer; transition: background 0.3s, color 0.3s;}
+        .lore-tabs button.active { background-color: var(--accent-color); color: var(--dark-bg); border-color: var(--accent-color);}
+        .lore-content { background-color: var(--dark-bg); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);}
+        .lore-content p { color: var(--text-subtle);}
+        /* Footer */
+        footer { background-color: var(--dark-bg); border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-subtle); font-size: 0.9rem;}
+        .footer-links a { margin: 0 10px; color: var(--text-subtle);}
+        .footer-links a:hover { color: var(--accent-color);}
     </style>
 </head>
 <body>
@@ -264,7 +74,7 @@
         <div class="container navbar">
             <div class="logo">AURA RP</div>
             <nav>
-                <a href="index.html">ANA SAYFA</a>
+                <a href="index.html" class="active">ANA SAYFA</a>
                 <a href="rules.html">KURALLAR</a>
                 <a href="lore.html">LORE & EVREN</a>
                 <a href="staff.html">EKİP</a>
@@ -310,7 +120,7 @@
                 <a href="rules.html">Kurallar</a> | 
                 <a href="lore.html">Lore</a> | 
                 <a href="https://discord.gg/XfWbbpV9vB" target="_blank">Discord</a> |
-                <a href="mailto:MAIL_ADRESINIZ">İletişim</a>
+                <a href="mailto:destek@aurarp.com">İletişim</a>
             </div>
             <p>&copy; 2024 Aura Roleplay. Tüm Hakları Saklıdır.</p>
             <p>Tasarım konsepti: Gemini AI</p>
