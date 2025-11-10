@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Roleplay - Lore & Evren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { /* ... (Temel renk ve fontlar aynı kalacak) */
+            --dark-bg: #0c0d10; --card-bg: #1a1c22; --accent-color: #f7a300; --text-light: #f4f4f4; --text-subtle: #a0a0a0; --border-color: #3b3e47;}
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth;}
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--text-light); text-transform: uppercase;}
+        a { text-decoration: none; color: var(--accent-color); transition: color 0.3s;}
+        a:hover { color: #ffc44d;}
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        header { background-color: var(--dark-bg); padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000;}
+        .navbar { display: flex; justify-content: space-between; align-items: center;}
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; color: var(--accent-color);}
+        nav a { margin-left: 30px; font-weight: 600; padding: 5px 0; position: relative;}
+        nav a:after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s;}
+        nav a:hover:after { width: 100%;}
+        .cta-button { background-color: var(--accent-color); color: var(--dark-bg) !important; padding: 8px 18px; border-radius: 4px; font-weight: 700; transition: background-color 0.3s, transform 0.2s; margin-left: 30px; border: none;}
+        .cta-button:hover { background-color: #ffc44d; transform: translateY(-2px);}
+        .content-section { padding: 80px 0; background-color: var(--card-bg); border-bottom: 1px solid var(--border-color);}
+        .content-section h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem;}
+        /* Lore Specific */
+        .lore-main { background-color: var(--dark-bg); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);}
+        .lore-main h3 { color: var(--accent-color); margin-top: 30px;}
+        .lore-main p { color: var(--text-subtle); margin-bottom: 30px;}
+        .lore-main ul { list-style: none; padding: 0;}
+        .lore-main ul li { background-color: #16171b; padding: 10px; margin-bottom: 10px; border-left: 3px solid var(--accent-color); color: var(--text-light);}
+        /* Footer */
+        footer { background-color: var(--dark-bg); border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-subtle); font-size: 0.9rem;}
+        .footer-links a { margin: 0 10px; color: var(--text-subtle);}
+        .footer-links a:hover { color: var(--accent-color);}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">AURA RP</div>
+            <nav>
+                <a href="index.html">ANA SAYFA</a>
+                <a href="rules.html">KURALLAR</a>
+                <a href="lore.html" class="active">LORE & EVREN</a>
+                <a href="staff.html">EKİP</a>
+                <a href="https://discord.gg/XfWbbpV9vB" target="_blank" class="cta-button">DİSCORD</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>AURA ŞEHRİNİN DERİNLİKLERİ</h2>
+            <div class="lore-main">
+                <p>
+                    Aura, geleneksel ile ultra-modernin birleştiği, gölgelerle aydınlığın savaş verdiği devasa bir metropoldür. Hikaye, 2077 yılının distopik bir geleceğinde, teknolojinin toplumu böldüğü bir ortamda geçmektedir. Zenginler (Upper Sector) gökdelenlerde izole yaşarken, sıradan insanlar (Mid-Block) ve yeraltı grupları (Lower Depth) hayatta kalma mücadelesi vermektedir.
+                </p>
+
+                <h3>ŞEHRİN ÜÇ TEMEL SEKTÖRÜ</h3>
+                <ul>
+                    <li>**Upper Sector (Yukarı Blok):** Şehrin zengin, korunaklı, yüksek teknolojiye sahip merkezi. Güvenlik, özel droidler ve koruma kalkanları ile sağlanır.</li>
+                    <li>**Mid-Block (Orta Blok):** Sıradan insanların yaşadığı, işyerlerinin, marketlerin ve orta sınıf konutların bulunduğu kaotik bölge. Çete ve şirket çatışmalarının sıkça yaşandığı yerdir.</li>
+                    <li>**Lower Depth (Alt Katman):** Terk edilmiş metro tünelleri, kanalizasyonlar ve eski fabrika binalarının olduğu yeraltı bölgesi. Yasa dışı ticaretin ve en tehlikeli grupların yuvasıdır.</li>
+                </ul>
+
+                <h3>ÖNEMLİ OYUNCU GRUPLARI (FAKSİYONLAR)</h3>
+                <p>
+                    Aura'da rol yapabileceğin temel gruplar, şehrin dengesini sürekli değiştirmektedir.
+                </p>
+                <ul>
+                    <li>**"The Council" (Konsey):** Upper Sector'u yöneten, şehri demir yumrukla kontrol eden şirket yöneticileri.</li>
+                    <li>**"Ghost Runners" (Hayalet Koşucular):** Siber güvenlik uzmanı ve yasa dışı veri hırsızları. Lower Depth'te yaşarlar.</li>
+                    <li>**"Aura PD":** Orta Blok'ta düzeni sağlamaya çalışan, yetersiz kaynaklara sahip polis gücü.</li>
+                    <li>**"Tech-Mercs" (Tekno-Paralı Askerler):** Şirketler için çalışan, yüksek teknolojiye sahip askeri birimler.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="rules.html">Kurallar</a> | <a href="lore.html">Lore</a> | <a href="https://discord.gg/XfWbbpV9vB" target="_blank">Discord</a> | <a href="mailto:destek@aurarp.com">İletişim</a>
+            </div>
+            <p>&copy; 2024 Aura Roleplay. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
