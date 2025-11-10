@@ -1,47 +1,109 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kurallar — AuraRP</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Roleplay - Kurallar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { /* ... (Temel renk ve fontlar aynı kalacak) */
+            --dark-bg: #0c0d10; --card-bg: #1a1c22; --accent-color: #f7a300; --text-light: #f4f4f4; --text-subtle: #a0a0a0; --border-color: #3b3e47;}
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth;}
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--text-light); text-transform: uppercase;}
+        a { text-decoration: none; color: var(--accent-color); transition: color 0.3s;}
+        a:hover { color: #ffc44d;}
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        header { background-color: var(--dark-bg); padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000;}
+        .navbar { display: flex; justify-content: space-between; align-items: center;}
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; color: var(--accent-color);}
+        nav a { margin-left: 30px; font-weight: 600; padding: 5px 0; position: relative;}
+        nav a:after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s;}
+        nav a:hover:after { width: 100%;}
+        .cta-button { background-color: var(--accent-color); color: var(--dark-bg) !important; padding: 8px 18px; border-radius: 4px; font-weight: 700; transition: background-color 0.3s, transform 0.2s; margin-left: 30px; border: none;}
+        .cta-button:hover { background-color: #ffc44d; transform: translateY(-2px);}
+        .content-section { padding: 80px 0; background-color: var(--card-bg); border-bottom: 1px solid var(--border-color);}
+        .content-section h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem;}
+        /* Rules Card Specific */
+        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px;}
+        .rule-card { background-color: var(--dark-bg); padding: 25px; border-radius: 6px; margin-bottom: 20px; border-left: 5px solid var(--accent-color); transition: border-left-color 0.3s;}
+        .rule-card:hover { border-left-color: #ffc44d;}
+        .rule-card h3 { margin-top: 0; font-size: 1.4rem; color: var(--text-light);}
+        .rule-card p { color: var(--text-subtle); margin-top: 15px; border-top: 1px dashed var(--border-color); padding-top: 15px;}
+        /* Footer */
+        footer { background-color: var(--dark-bg); border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-subtle); font-size: 0.9rem;}
+        .footer-links a { margin: 0 10px; color: var(--text-subtle);}
+        .footer-links a:hover { color: var(--accent-color);}
+    </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="brand">AuraRP</div>
-    <div class="nav-links">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="characters.html">Karakterler</a>
-      <a href="rules.html" class="active">Kurallar</a>
-      <a href="hikaye.html">Hikayeni Yaz</a>
-      <a href="basvuru.html">Ekip Başvurusu</a>
-      <a href="etkinlik.html">Etkinlikler</a>
-    </div>
-  </nav>
+    <header>
+        <div class="container navbar">
+            <div class="logo">AURA RP</div>
+            <nav>
+                <a href="index.html">ANA SAYFA</a>
+                <a href="rules.html" class="active">KURALLAR</a>
+                <a href="lore.html">LORE & EVREN</a>
+                <a href="staff.html">EKİP</a>
+                <a href="https://discord.gg/XfWbbpV9vB" target="_blank" class="cta-button">DİSCORD</a>
+            </nav>
+        </div>
+    </header>
 
-  <main class="page">
-    <h1>Sunucu Kuralları</h1>
-    <p>Lütfen sunucuya katılmadan önce kuralları oku. (Kısa özet)</p>
+    <section class="content-section">
+        <div class="container">
+            <h2>TOPLULUĞUMUZUN TEMELLERİ: ANA KURALLAR</h2>
+            <div class="rules-grid">
+                
+                <div class="rule-card">
+                    <h3>1. GENEL ROL KURALLARI (IC/OOC)</h3>
+                    <p>
+                        * **Meta Gaming (MG):** IC rolü etkileyecek OOC (Discord, Site vb.) bilgi kullanmak yasaktır.<br>
+                        * **Power Gaming (PG):** Karakterin yapamayacağı şeyleri zorlamak (sınırsız güç, yaralanmazlık) yasaktır.<br>
+                        * **IC / OOC Ayrımı:** Rol içi ve rol dışı konuşmaları daima ayırın. OOC sohbet Discord'da yapılmalıdır.
+                    </p>
+                </div>
 
-    <div class="form-glass">
-      <details open>
-        <summary><strong>Genel Kurallar</strong></summary>
-        <ul>
-          <li>Küfür ve taciz yasaktır.</li>
-          <li>OOC/IC ayrımına dikkat et.</li>
-        </ul>
-      </details>
+                <div class="rule-card">
+                    <h3>2. ÇATIŞMA VE ÖLÜM (CK / PK)</h3>
+                    <p>
+                        * **Permadeath (CK):** Karakterin kalıcı olarak ölümü, ancak yönetim izni ve ağır rol gerekçeleriyle uygulanır.<br>
+                        * **Player Kill (PK):** Olay sonunda bilincini kaybeden karakterin rolü bitirmesi ve olayı unutması.<br>
+                        * **Non-RP Çatışma:** Rol yapılmadan, direkt çatışmaya girmek kesinlikle yasaktır. Çatışma her zaman rol ile başlamalıdır.
+                    </p>
+                </div>
 
-      <details>
-        <summary><strong>Roleplay Kuralları</strong></summary>
-        <ul>
-          <li>Metagaming/Powergaming yasaktır.</li>
-          <li>İyi niyetle RP yap.</li>
-        </ul>
-      </details>
-    </div>
-  </main>
+                <div class="rule-card">
+                    <h3>3. TOPLULUK KURALLARI (OOC DAVRANIŞ)</h3>
+                    <p>
+                        * **Saygı:** Tüm oyunculara ve Yönetim Ekibine saygılı olmak zorunludur.<br>
+                        * **Kışkırtma/Toksiklik:** OOC alanda kışkırtıcı, ırkçı veya ayrımcı dil kullanmak kalıcı uzaklaştırma sebebidir.<br>
+                        * **Şikayet:** Şikayetler sadece belirtilen destek kanalları üzerinden, sakin ve kanıtlı bir şekilde yapılmalıdır.
+                    </p>
+                </div>
 
-  <footer>© 2025 AuraRP</footer>
+                <div class="rule-card">
+                    <h3>4. EKONOMİ VE VARLIKLAR</h3>
+                    <p>
+                        * **Haksız Kazanç:** Oyun açıkları veya hile ile elde edilen tüm varlıklar silinir ve ceza uygulanır.<br>
+                        * **Rol Dengesi:** Karakterinizin sosyal statüsüne uygun bir rol sergileyin (Zengin bir rolü, rolü yapmadan anında oynamayın).<br>
+                        * **Karakter Transferi:** Rol dışı para veya varlık transferi yönetim izni olmadan kesinlikle yasaktır.
+                    </p>
+                </div>
+
+            </div>
+            <blockquote>
+                **NOT:** Tüm kuralların detaylı açıklamaları Discord sunucumuzdaki #kurallar kanalında mevcuttur. Site, temel yol göstericidir.
+            </blockquote>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="rules.html">Kurallar</a> | <a href="lore.html">Lore</a> | <a href="https://discord.gg/XfWbbpV9vB" target="_blank">Discord</a> | <a href="mailto:destek@aurarp.com">İletişim</a>
+            </div>
+            <p>&copy; 2024 Aura Roleplay. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 </body>
 </html>
